@@ -4,7 +4,6 @@ vim.keymap.set('n', '<leader>pf', builtin.find_files, {desc = 'Search in all fil
 vim.keymap.set('n', '<C-p>', builtin.git_files, {desc = 'Search git files'})
 --[[ vim.keymap.set('n', '<C-p>', builtin.find_files, {}) ]]
 vim.keymap.set('n', '<leader>ps', function()
-
     builtin.grep_string({search = vim.fn.input("Grep > ")})
 end)
 

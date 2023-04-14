@@ -89,6 +89,16 @@ _G.packer_plugins = {
     path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cobalt2.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cobalt2.nvim",
+    url = "https://github.com/lalitmee/cobalt2.nvim"
+  },
+  ["colorbuddy.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\colorbuddy.nvim",
+    url = "https://github.com/tjdevries/colorbuddy.nvim"
+  },
   ["copilot.vim"] = {
     loaded = true,
     path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\copilot.vim",
@@ -114,10 +124,10 @@ _G.packer_plugins = {
     path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["gruvbox.nvim"] = {
+  ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
+    path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
