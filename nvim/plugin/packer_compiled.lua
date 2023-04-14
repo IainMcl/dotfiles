@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -69,41 +74,57 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["cobalt2.nvim"] = {
-    config = { "\27LJ\2\nJ\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\fcobalt2\16colorscheme\15colorbuddy\frequire\0" },
+  ["Comment.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cobalt2.nvim",
-    url = "https://github.com/lalitmee/cobalt2.nvim"
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
+  LuaSnip = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["coc.nvim"] = {
-    config = { "\27LJ\2\nœ\1\0\0\6\0\t\0\r6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0009\0\4\0'\2\5\0'\3\6\0'\4\a\0005\5\b\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\18:Prettier<CR>\14<leader>p\6n\20nvim_set_keymap\bapiV command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile') \bcmd\bvim\0" },
     loaded = true,
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
-  },
-  ["colorbuddy.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\colorbuddy.nvim",
-    url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
   ["copilot.vim"] = {
     loaded = true,
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
+  ["flutter-tools.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\flutter-tools.nvim",
+    url = "https://github.com/akinsho/flutter-tools.nvim"
+  },
   fzf = {
     loaded = true,
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzf",
     url = "https://github.com/junegunn/fzf"
   },
-  ["fzf.vim"] = {
-    config = { "\27LJ\2\nb\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\15:Files<CR>\n<C-p>\6n\20nvim_set_keymap\bapi\bvim\0" },
+  ["gruvbox.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzf.vim",
-    url = "https://github.com/junegunn/fzf.vim"
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
+  ["lsp-zero.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-zero.nvim",
+    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["lualine.nvim"] = {
-    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\flualine\frequire\0" },
     loaded = true,
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
@@ -113,17 +134,40 @@ _G.packer_plugins = {
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
   ["nvim-surround"] = {
-    config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0" },
     loaded = true,
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-surround",
     url = "https://github.com/kylechui/nvim-surround"
   },
   ["nvim-tree.lua"] = {
-    config = { "\27LJ\2\nó\1\0\0\6\0\n\0\0146\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\a\0'\4\b\0005\5\t\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\24:NvimTreeToggle<CR>\n<C-t>\6n\20nvim_set_keymap\bapi\bvim\nsetup\14nvim-tree\frequire\0" },
     loaded = true,
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -155,6 +199,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  undotree = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\undotree",
+    url = "https://github.com/mbbill/undotree"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
@@ -164,34 +213,22 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-startify",
     url = "https://github.com/mhinz/vim-startify"
+  },
+  ["zen-mode.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\zen-mode.nvim",
+    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\nó\1\0\0\6\0\n\0\0146\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0'\3\a\0'\4\b\0005\5\t\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\24:NvimTreeToggle<CR>\n<C-t>\6n\20nvim_set_keymap\bapi\bvim\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
--- Config for: cobalt2.nvim
-time([[Config for cobalt2.nvim]], true)
-try_loadstring("\27LJ\2\nJ\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\fcobalt2\16colorscheme\15colorbuddy\frequire\0", "config", "cobalt2.nvim")
-time([[Config for cobalt2.nvim]], false)
--- Config for: fzf.vim
-time([[Config for fzf.vim]], true)
-try_loadstring("\27LJ\2\nb\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\15:Files<CR>\n<C-p>\6n\20nvim_set_keymap\bapi\bvim\0", "config", "fzf.vim")
-time([[Config for fzf.vim]], false)
--- Config for: nvim-surround
-time([[Config for nvim-surround]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
-time([[Config for nvim-surround]], false)
--- Config for: coc.nvim
-time([[Config for coc.nvim]], true)
-try_loadstring("\27LJ\2\nœ\1\0\0\6\0\t\0\r6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\3\0009\0\4\0'\2\5\0'\3\6\0'\4\a\0005\5\b\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\18:Prettier<CR>\14<leader>p\6n\20nvim_set_keymap\bapiV command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile') \bcmd\bvim\0", "config", "coc.nvim")
-time([[Config for coc.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\flualine\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)
