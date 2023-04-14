@@ -59,7 +59,7 @@ New-Item -ItemType SymbolicLink -Path "$windowsTerminalSettingsPath\settings.jso
 ###############################################################################
 # Create a symlink for Microsoft.PowerShell_profile.ps1
 $powershellProfilePath = "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
-$dotfilesPowershellProfilePath = "$dotfilesPath\Microsoft.PowerShell_profile.ps1"
+$dotfilesPowershellProfilePath = "$dotfilesPath\Powershell\Microsoft.PowerShell_profile.ps1"
 if (Test-Path $powershellProfilePath) {
     Remove-Item $powershellProfilePath
 }
