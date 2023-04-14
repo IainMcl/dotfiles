@@ -36,6 +36,11 @@ git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data
 # Windows Terminal
 ###############################################################################
 
+# To install fonts for CaskydiaCove 
+# https://www.nerdfonts.com/font-downloads
+# https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/CascadiaCode.zip
+# Copy the windows mono regular file to C:\Windows\Fonts\
+
 # Create symlink for windows terminal settings
 
 # Define the source and destination paths
