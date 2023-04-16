@@ -103,7 +103,10 @@ require('packer').startup(function()
             show_trailing_blankline_indent = false,
         },
     }
-
-
+    use 'mfussenegger/nvim-dap'
+    use "ray-x/lsp_signature.nvim"
+    use 'jiangmiao/auto-pairs'
+    use "akinsho/toggleterm.nvim"
 end) 
+
 
