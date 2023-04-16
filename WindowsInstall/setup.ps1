@@ -70,3 +70,9 @@ winget install JanDeDobbeleer.OhMyPosh -s winget
 
 # Install  New Terminal Icons for PowerShell
 Install-Module -Name Terminal-Icons -Repository PSGallery
+
+###############################################################################
+# Lazygit
+###############################################################################
+
+choco install lazygit
