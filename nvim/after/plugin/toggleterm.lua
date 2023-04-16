@@ -5,8 +5,9 @@ if not status_ok then
 end
 
 toggleterm.setup({
-    size = 20,
-    open_mapping = [[<c-m>]],
+     size = 20,
+    -- open_mapping = [[<C-\>]],
+    open_mapping = [[<C-\>]],
     shade_filetypes = {},
     shade_terminals = true,
     shading_factor = 2,
@@ -37,4 +38,4 @@ function _LAZYGIT_TOGGLE()
     lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap('n', '<leader>lg' ,':lua _LAZYGIT_TOGGLE() <CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>lg' ,':lua _LAZYGIT_TOGGLE() <CR>', {noremap = true})
