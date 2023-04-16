@@ -6,6 +6,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 # install Neovim
 ###############################################################################
 
+echo "Install neovim"
 choco install neovim
 
 # Add neovim to path 
@@ -17,18 +18,22 @@ choco install neovim
 # Dotfiles
 ###############################################################################
 
+echo "Clone dotfiles"
 git clone https://github.com/IainMcl/dotfiles.git $HOME
 
 ###############################################################################
 # Neovim
 ###############################################################################
 
+echo "Remove current neovim config"
 # Remove any current nvim configurations
 Remove-Item -Path $HOME\AppData\Local\nvim -Recurse -Force
 
+echo "Create symlink for neovim"
 # create symlink to neovimrc
 cmd /c mklink /J $HOME\AppData\Local\nvim $HOME\dotfiles\nvim\
 
+echo "Install packer"
 # Install packer for neovim
 git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
 
@@ -43,6 +48,7 @@ git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data
 
 # Create symlink for windows terminal settings
 
+echo "Create symlink for Windows Terminal settings.json"
 # Define the source and destination paths
 $dotfilesPath = "$HOME\dotfiles"
 $settingsJsonPath = "$dotfilesPath\Powershell\WindowsTerminal\settings.json"
@@ -57,6 +63,8 @@ New-Item -ItemType SymbolicLink -Path "$windowsTerminalSettingsPath\settings.jso
 ###############################################################################
 # Powershell
 ###############################################################################
+
+echo "Create symlink for Powershell profile"
 # Create a symlink for Microsoft.PowerShell_profile.ps1
 $powershellProfilePath = "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 $dotfilesPowershellProfilePath = "$dotfilesPath\Powershell\Microsoft.PowerShell_profile.ps1"
@@ -65,6 +73,7 @@ if (Test-Path $powershellProfilePath) {
 }
 New-Item -ItemType SymbolicLink -Path $powershellProfilePath -Target $dotfilesPowershellProfilePath
 
+echo "Install Oh-My-Posh"
 # Install Oh-My-Posh for windows terminal
 winget install JanDeDobbeleer.OhMyPosh -s winget
 
@@ -75,4 +84,5 @@ Install-Module -Name Terminal-Icons -Repository PSGallery
 # Lazygit
 ###############################################################################
 
+echo "Install lazygit"
 choco install lazygit
