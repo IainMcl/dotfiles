@@ -1,8 +1,5 @@
-# Copy as powershell $profile
-
-
 # Use the Oh-my-posh terminal prompt: https://ohmyposh.dev/docs/
-oh-my-posh init pwsh | Invoke-Expression
+oh-my-posh init pwsh --config '$home/.oh-my-posh/iainm.omp.json' | Invoke-Expression
 
 
 

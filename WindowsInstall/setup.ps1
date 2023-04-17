@@ -51,7 +51,7 @@ git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data
 echo "Create symlink for Windows Terminal settings.json"
 # Define the source and destination paths
 $dotfilesPath = "$HOME\dotfiles"
-$settingsJsonPath = "$dotfilesPath\Powershell\WindowsTerminal\settings.json"
+$settingsJsonPath = "$dotfilesPath\WindowsTerminal\settings.json"
 $windowsTerminalSettingsPath = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState"
 
 # Remove the existing settings.json file (if it exists)
@@ -67,7 +67,7 @@ New-Item -ItemType SymbolicLink -Path "$windowsTerminalSettingsPath\settings.jso
 echo "Create symlink for Powershell profile"
 # Create a symlink for Microsoft.PowerShell_profile.ps1
 $powershellProfilePath = "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
-$dotfilesPowershellProfilePath = "$dotfilesPath\Powershell\Microsoft.PowerShell_profile.ps1"
+$dotfilesPowershellProfilePath = "$dotfilesPath\PowerShell\Microsoft.PowerShell_profile.ps1"
 if (Test-Path $powershellProfilePath) {
     Remove-Item $powershellProfilePath
 }
@@ -84,5 +84,4 @@ Install-Module -Name Terminal-Icons -Repository PSGallery
 # Lazygit
 ###############################################################################
 
-echo "Install lazygit"
-choco install lazygit
+echo "Install lazygit" choco install lazygit
