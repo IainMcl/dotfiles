@@ -38,4 +38,4 @@ function _LAZYGIT_TOGGLE()
     lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap('n', '<leader>lg' ,':lua _LAZYGIT_TOGGLE() <CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>lg' ,':lua _LAZYGIT_TOGGLE() <CR>', {noremap = true, desc="[L]azy [G]it"})

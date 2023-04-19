@@ -66,6 +66,7 @@
             {
                 "colorScheme": "Gruvbox Dark",
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "commandline": "test",
                 "cursorShape": "filledBox",
                 "font": 
                 {

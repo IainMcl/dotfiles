@@ -174,6 +174,16 @@ _G.packer_plugins = {
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap",
     url = "https://github.com/mfussenegger/nvim-dap"
   },
+  ["nvim-dap-python"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-python",
+    url = "https://github.com/mfussenegger/nvim-dap-python"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
@@ -209,10 +219,20 @@ _G.packer_plugins = {
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  rainbow = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\rainbow",
+    url = "https://github.com/luochen1990/rainbow"
+  },
   ripgrep = {
     loaded = true,
     path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ripgrep",
     url = "https://github.com/BurntSushi/ripgrep"
+  },
+  ["telescope-command-palette.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope-command-palette.nvim",
+    url = "https://github.com/LinArcX/telescope-command-palette.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
