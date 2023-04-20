@@ -40,7 +40,7 @@
             "cursorShape": "filledBox",
             "font": 
             {
-                "face": "CaskaydiaCove Nerd Font Mono",
+                "face": "MS Gothic",
                 "size": 10.0
             }
         },
@@ -60,12 +60,10 @@
                 "scrollbarState": "hidden",
                 "source": "Windows.Terminal.PowershellCore",
                 "startingDirectory": "C:/src",
-                "startingDirectory": "%USERPROFILE%",
                 "useAcrylic": false
             },
             {
                 "colorScheme": "Gruvbox Dark",
-                "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "commandline": "test",
                 "cursorShape": "filledBox",
                 "font": 
