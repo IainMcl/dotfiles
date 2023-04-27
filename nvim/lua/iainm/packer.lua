@@ -71,10 +71,17 @@ require('packer').startup(function()
             { 'L3MON4D3/LuaSnip' },   -- Required
         }
     }
+    use "ray-x/lsp_signature.nvim"
+    use { -- Autocompletion
+        'hrsh7th/nvim-cmp',
+        dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    }
+    ---------------------------------------------------------------------------
+    -- Debugging
+    ---------------------------------------------------------------------------
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-    use "ray-x/lsp_signature.nvim"
     use {
         'akinsho/flutter-tools.nvim',
         requires = {
@@ -82,10 +89,7 @@ require('packer').startup(function()
             'stevearc/dressing.nvim', -- optional for vim.ui.select
         },
     }
-    use { -- Autocompletion
-        'hrsh7th/nvim-cmp',
-        dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-    }
+    use 'leoluz/nvim-dap-go'
     ---------------------------------------------------------------------------
     -- Copilot
     ---------------------------------------------------------------------------
