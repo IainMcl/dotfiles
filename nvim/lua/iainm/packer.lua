@@ -57,7 +57,7 @@ require('packer').startup(function()
             -- LSP Support
             { 'neovim/nvim-lspconfig' }, -- Required
             {
-                                       -- Optional
+                -- Optional
                 'williamboman/mason.nvim',
                 run = function()
                     pcall(vim.cmd, 'MasonUpdate')
@@ -66,9 +66,9 @@ require('packer').startup(function()
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },   -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },   -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
         }
     }
     use "ray-x/lsp_signature.nvim"
@@ -90,6 +90,16 @@ require('packer').startup(function()
         },
     }
     use 'leoluz/nvim-dap-go'
+    use { -- Autocompletion
+        'hrsh7th/nvim-cmp',
+        dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    }
+    -- Lua
+    use {
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+    }
+    use "folke/neodev.nvim"
     ---------------------------------------------------------------------------
     -- Copilot
     ---------------------------------------------------------------------------
@@ -122,7 +132,7 @@ require('packer').startup(function()
     }
     use 'tpope/vim-fugitive'
     use 'folke/zen-mode.nvim'
-    use {  -- Adds git releated signs to the gutter, as well as utilities for managing changes
+    use { -- Adds git releated signs to the gutter, as well as utilities for managing changes
         'lewis6991/gitsigns.nvim',
         opts = {
             -- See `:help gitsigns.txt`
