@@ -166,7 +166,7 @@ _G.packer_plugins = {
   },
   ["neodev.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neodev.nvim",
+    path = "/Users/iainmclaughlan/.local/share/nvim/site/pack/packer/start/neodev.nvim",
     url = "https://github.com/folke/neodev.nvim"
   },
   ["nvim-cmp"] = {
@@ -261,7 +261,7 @@ _G.packer_plugins = {
   },
   ["trouble.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\trouble.nvim",
+    path = "/Users/iainmclaughlan/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
   undotree = {
