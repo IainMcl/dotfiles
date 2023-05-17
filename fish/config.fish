@@ -3,6 +3,7 @@
 
 set -x PATH $PATH ~/mysrc/Todo.go/bin
 set -x PATH $PATH ~/development/flutter/bin
+set -x PATH $PATH ~/.rvm/bin
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
