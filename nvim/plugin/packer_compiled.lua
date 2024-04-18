@@ -166,7 +166,7 @@ _G.packer_plugins = {
   },
   ["neodev.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neodev.nvim",
+    path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neodev.nvim",
     url = "https://github.com/folke/neodev.nvim"
   },
   ["nvim-cmp"] = {
@@ -193,6 +193,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-vscode-js"] = {
+    loaded = true,
+    path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-vscode-js",
+    url = "https://github.com/mxsdev/nvim-dap-vscode-js"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -261,7 +266,7 @@ _G.packer_plugins = {
   },
   ["trouble.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\P50084775\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\trouble.nvim",
+    path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
   undotree = {
@@ -278,6 +283,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-startify",
     url = "https://github.com/mhinz/vim-startify"
+  },
+  ["vscode-js-debug"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "C:\\Users\\iainm\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\vscode-js-debug",
+    url = "https://github.com/microsoft/vscode-js-debug"
   },
   ["zen-mode.nvim"] = {
     loaded = true,

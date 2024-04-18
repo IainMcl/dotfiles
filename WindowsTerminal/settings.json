@@ -32,11 +32,17 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
         "defaults": 
         {
-            "colorScheme": "Cobalt2",
+            "colorScheme": "Gruvbox Dark",
             "cursorShape": "filledBox",
             "font": 
             {
@@ -59,7 +65,7 @@
                 "opacity": 100,
                 "scrollbarState": "hidden",
                 "source": "Windows.Terminal.PowershellCore",
-                "startingDirectory": "C:/src",
+                "startingDirectory": "%USERPROFILE%",
                 "useAcrylic": false
             },
             {
@@ -82,34 +88,10 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{57dcc872-10d3-553f-882a-bc058e7c8b2f}",
-                "hidden": true,
-                "name": "Developer Command Prompt for VS 2017",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": true,
                 "name": "Windows PowerShell"
-            },
-            {
-                "guid": "{69ca8352-7603-5d67-ad91-603380f73eeb}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{543c22cb-1d7d-5126-923e-fa7328565d4a}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
-                "hidden": true,
-                "name": "Visual Studio Debug Console",
-                "source": "VSDebugConsole"
             }
         ]
     },
