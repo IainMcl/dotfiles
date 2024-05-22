@@ -21,7 +21,7 @@ vim.opt.backup = false
 -- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false 
+vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -47,4 +47,6 @@ vim.opt.timeoutlen = 300
 vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 
-
+-- Spell checking
+vim.opt.spell = true
+vim.opt.spelllang = "en"
