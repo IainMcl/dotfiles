@@ -38,5 +38,6 @@
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
   "telescope.nvim": { "branch": "master", "commit": "dfa230be84a044e7f546a6c2b0a403c739732b86" },
   "todo-comments.nvim": { "branch": "main", "commit": "70a93ce66083699571adc361166504b03cc39c2b" },
+  "trouble.nvim": { "branch": "main", "commit": "e2969409cf3f38f69913cc8fd9aa13137aabe760" },
   "zen-mode.nvim": { "branch": "main", "commit": "78557d972b4bfbb7488e17b5703d25164ae64e6a" }
 }
