@@ -14,6 +14,16 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- Buffer resize
+vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "Equalize window sizes" })
+vim.keymap.set("n", "<leader>+", "<C-w>+10", { desc = "Increase window height" })
+vim.keymap.set("n", "<leader>-", "<C-w>-10", { desc = "Decrease window height" })
+vim.keymap.set("n", "<leader>_", "<C-w>_", { desc = "Maximize window height" })
+vim.keymap.set("n", "<leader>\\", "<C-w>|", { desc = "Maximize window width" })
+-- Horizontal resize
+vim.keymap.set("n", "<leader>h", "<C-w><10", { desc = "Decrease window width" })
+vim.keymap.set("n", "<leader>l", "<C-w>>10", { desc = "Increase window width" })
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`

@@ -11,7 +11,7 @@ vim.api.nvim_set_keymap(
 )
 -- Spelling alias to auto select top suggestion
 -- No idea why this needs the extra <CR>
-vim.api.nvim_set_keymap("n", "<leader>z", "z=1<CR><CR>", { noremap = true, desc = "Add word to dictionary" })
+vim.api.nvim_set_keymap("n", "<leader>z", "z=1<CR><CR>", { noremap = true, desc = "" })
 return {}
 -- return {
 -- 	config = function()

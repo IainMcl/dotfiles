@@ -8,10 +8,14 @@ def test() -> int:
     """
     return 1
 
+
 def main():
     # This is my thing
     test()
 
 
-if __name__ == '__main__':  
+if __name__ == '__main__':
+    main()
+    main()
+    main()
     main()
