@@ -65,7 +65,8 @@
                 "opacity": 100,
                 "scrollbarState": "hidden",
                 "source": "Windows.Terminal.PowershellCore",
-                "startingDirectory": "%USERPROFILE%",
+                // "startingDirectory": "%USERPROFILE%",
+                "startingDirectory": "C:\\src",
                 "useAcrylic": false
             },
             {

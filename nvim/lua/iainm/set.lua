@@ -10,6 +10,11 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+vim.cmd([[
+  autocmd FileType python setlocal tabstop=4 shiftwidth=4
+  autocmd FileType javascript setlocal tabstop=2 shiftwidth=2
+]])
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
