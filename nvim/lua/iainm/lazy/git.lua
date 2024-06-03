@@ -46,7 +46,7 @@ return {
 				},
 			})
 			local gitsigns = require("gitsigns")
-			vim.keymap.set("n", "<leader>gs", gitsigns.preview_hunk, {})
+			vim.keymap.set("n", "<leader>gh", gitsigns.preview_hunk, {})
 			vim.keymap.set("n", "<leader>hs", gitsigns.stage_hunk, {})
 			vim.keymap.set("n", "<leader>hr", gitsigns.reset_hunk, {})
 		end,
