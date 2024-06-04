@@ -11,8 +11,15 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.cmd([[
+  autocmd BufRead,BufNewFile *.jsx setfiletype javascriptreact
+  autocmd BufRead,BufNewFile *.tsx setfiletype typescriptreact
+]])
+
+vim.cmd([[
   autocmd FileType python setlocal tabstop=4 shiftwidth=4
   autocmd FileType javascript setlocal tabstop=2 shiftwidth=2
+  autocmd FileType javascriptreact setlocal tabstop=2 shiftwidth=2
+  autocmd FileType typescriptreact setlocal tabstop=2 shiftwidth=2
 ]])
 
 vim.opt.smartindent = true
