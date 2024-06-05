@@ -50,7 +50,7 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.showmode = false
 
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard:append("unnamedplus")
 
 vim.opt.breakindent = true
 vim.opt.updatetime = 250
@@ -62,3 +62,11 @@ vim.opt.cursorline = true
 -- Spell checking
 vim.opt.spell = true
 vim.opt.spelllang = "en"
+
+-- go to previous/next line with h,l,left arrow and right arrow
+-- when cursor reaches end/beginning of line
+vim.opt.whichwrap:append("<>[]hl")
+
+-- add binaries installed by mason.nvim to path
+local is_windows = vim.fn.has("win32") ~= 0
+vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH

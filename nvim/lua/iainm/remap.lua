@@ -34,3 +34,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+-- terminal
+vim.keymap.set("t", "<C-x>", "<C-\\><C-N>", { desc = "Terminal - escape terminal mode" })

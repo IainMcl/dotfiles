@@ -34,4 +34,8 @@ return {
 			desc = "Quickfix List (Trouble)",
 		},
 	},
+	config = function()
+		vim.keymap.set("n", "gn", vim.diagnostic.goto_next, { desc = "[G]oto [N]ext - diagnostics" })
+		vim.keymap.set("n", "gp", vim.diagnostic.goto_prev, { desc = "[G]oto [P]revious - diagnostics" })
+	end,
 }

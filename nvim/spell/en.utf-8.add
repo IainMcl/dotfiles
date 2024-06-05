@@ -10,3 +10,5 @@ config
 keymaps
 wincmd
 github
+linter
+linters

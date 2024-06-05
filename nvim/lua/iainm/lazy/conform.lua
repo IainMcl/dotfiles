@@ -36,7 +36,7 @@ return {
 			-- is found.
 			javascript = { { "prettierd", "prettier" } },
 			go = { "goimports", "gofmt" },
-			["*"] = { "codespell" },
+			-- ["*"] = { "codespell" },
 			["_"] = { "trim_whitespace" },
 		},
 	},

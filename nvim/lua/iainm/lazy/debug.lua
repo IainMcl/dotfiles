@@ -55,6 +55,23 @@ return {
 		vim.keymap.set("n", "<leader>B", function()
 			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end, { desc = "Debug: Set Breakpoint" })
+		vim.keymap.set("n", "<leader>bb", dap.toggle_breakpoint, { desc = "Toggle [B]reakpoint" })
+		vim.keymap.set("n", "<leader>bl", function()
+			local input = vim.fn.input("Log point message: ")
+			if input ~= "" then
+				require("dap").set_breakpoint(nil, nil, input)
+			end
+		end, { desc = "[B]reakpoint [L]og" })
+		vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "[D]ebug [C]ontinue" })
+		vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "[D]ebug step [O]ver" })
+		vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "[D]ebug step [I]nto" })
+		vim.keymap.set("n", "<leader>doo", dap.step_into, { desc = "[D]ebug step [O]ut" })
+		vim.keymap.set("n", "<leader>dd", function()
+			vim.notify("Ending dap session")
+			require("dap").disconnect()
+			require("dapui").close()
+		end, { desc = "[D]ebug [D]isconnect" })
+		vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "[D]ebug [R]epl toggle" })
 
 		-- Dap UI setup
 		-- For more information, see |:help nvim-dap-ui|
