@@ -8,9 +8,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="awesomepanda"
-# ZSH_THEME="nicoulaj"
-# ZSH_THEME="refined"
+# ZSH_THEME="awesomepanda"
+# ZSH_THEME="nicoulaj
+ZSH_THEME="refined"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,12 +73,12 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
     history
     encode64
     copypath
     zsh-autosuggestions
     zsh-syntax-highlighting
+    # alias-finder
 )
 
 source $ZSH/oh-my-zsh.sh
