@@ -4,9 +4,24 @@ return {
         config = function()
             -- Minimal config
             require("themery").setup({
-                themes = { "gruvbox", "bamboo", "tokyonight", "catppuccin", "kanagawa" }, -- Your list of installed colorschemes
-                themeConfigFile = "~/.config/nvim/lua/iainm/theme.lua",                   -- Described below
-                livePreview = true,                                                       -- Apply theme while browsing. Default to true.
+                -- Themes should be installed below
+                themes = {
+                    "gruvbox",
+                    "bamboo",
+                    "tokyonight",
+                    "tokyonight-night",
+                    "tokyonight-storm",
+                    "tokyonight-day",
+                    "tokyonight-moon",
+                    "catppuccin",
+                    "catppuccin-latte",
+                    "catppuccin-mocha",
+                    "kanagawa",
+                    "kanagawa-lotus",
+                    "kanagawa-dragon",
+                },                                                      -- Your list of installed colorschemes
+                themeConfigFile = "~/.config/nvim/lua/iainm/theme.lua", -- Described below
+                livePreview = true,                                     -- Apply theme while browsing. Default to true.
             })
         end
     },
