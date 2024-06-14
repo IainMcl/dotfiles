@@ -44,6 +44,9 @@ return {
             ensure_installed = {
                 -- Update this to ensure that you have the debuggers for the langs you want
                 "delve",
+                "chrome-debug-adapter",
+                "firefox-debug-adapter",
+                "debugpy"
             },
         })
 
@@ -66,7 +69,8 @@ return {
         vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "[D]ebug [C]ontinue" })
         vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "[D]ebug step [O]ver" })
         vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "[D]ebug step [I]nto" })
-        vim.keymap.set("n", "<leader>doo", dap.step_into, { desc = "[D]ebug step [O]ut" })
+        vim.keymap.set("n", "<leader>doo", dap.step_out, { desc = "[D]ebug step [O]ut [O]f" })
+        vim.keymap.set("n", "<leader>dt", dapui.toggle, { desc = "[D]ebug UI [T]oggle" })
         vim.keymap.set("n", "<leader>dd", function()
             vim.notify("Ending dap session")
             require("dap").disconnect()
@@ -74,6 +78,31 @@ return {
         end, { desc = "[D]ebug [D]isconnect" })
         vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "[D]ebug [R]epl toggle" })
 
+        -----------
+        --- Custom dap styling
+        -----------
+        -- vim.fn.sign_define('DapBreakpoint', { text = '•', texthl = 'red', linehl = '', numhl = '' })
+        -- local set_namespace = vim.api.nvim__set_hl_ns or vim.api.nvim_set_hl_ns
+        -- local namespace = vim.api.nvim_create_namespace("dap-hlng")
+        -- vim.api.nvim_set_hl(namespace, 'DapBreakpoint', { fg = '#eaeaeb', bg = '#ffffff' })
+        -- vim.api.nvim_set_hl(namespace, 'DapLogPoint', { fg = '#eaeaeb', bg = '#ffffff' })
+        -- vim.api.nvim_set_hl(namespace, 'DapStopped', { fg = '#eaeaeb', bg = '#ffffff' })
+        --
+        vim.fn.sign_define('DapBreakpoint',
+            { text = '🔴', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+        vim.fn.sign_define('DapBreakpointCondition',
+            { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+        vim.fn.sign_define('DapBreakpointRejected',
+            { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+        vim.fn.sign_define('DapLogPoint', {
+            text = '',
+            texthl = 'DapLogPoint',
+            linehl = 'DapLogPoint',
+            numhl =
+            'DapLogPoint'
+        })
+        vim.fn.sign_define('DapStopped',
+            { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
         -- Dap UI setup
         -- For more information, see |:help nvim-dap-ui|
         dapui.setup({
@@ -83,15 +112,15 @@ return {
             icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
             controls = {
                 icons = {
-                    pause = "⏸",
+                    pause = "",
                     play = "▶",
-                    step_into = "⏎",
-                    step_over = "⏭",
-                    step_out = "⏮",
-                    step_back = "b",
-                    run_last = "▶▶",
-                    terminate = "⏹",
-                    disconnect = "⏏",
+                    step_into = "",
+                    step_over = "",
+                    step_out = "",
+                    step_back = "",
+                    run_last = "",
+                    terminate = "",
+                    disconnect = "",
                 },
             },
         })

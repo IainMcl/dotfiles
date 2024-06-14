@@ -1,5 +1,5 @@
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd("colorscheme tokyonight-moon")
-vim.g.theme_id = 7
+vim.cmd("colorscheme catppuccin")
+vim.g.theme_id = 8
 -- end themery block
