@@ -154,5 +154,7 @@ return {
                 "chrome"
             }
         })
+
+        require("dap-python").setup("python3")
     end,
 }

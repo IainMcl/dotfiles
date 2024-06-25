@@ -120,6 +120,15 @@ export NVM_DIR="$HOME/.nvm"
 
 unsetopt BEEP
 
+# Enable fuzzy completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Bind Ctrl+R to fuzzy search through command history
+bindkey '^R' fzf-history-widget
+
+
+# bindkey '^F' cd $(find . -type d | fzf)
+
 # if [ -x "$SSH_AUTH_SOCK" ] || ! pgrep -u "$USER" ssh-agent > /dev/null; then
 #     eval "$(ssh-agent -s)"
 # fi
