@@ -74,7 +74,7 @@ config.keys = {
 		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
 	{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
-	{ Key = "+", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
+	{ key = "+", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
 	{ key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
 }
 
