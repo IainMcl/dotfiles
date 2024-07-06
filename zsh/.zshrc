@@ -108,6 +108,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ls="eza --icons=always"
+
+# -------- Zoxide (better cd) --------
+# eval "$(zoxide init zsh)"
+# alias cd="z"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -125,6 +130,11 @@ unsetopt BEEP
 
 # Bind Ctrl+R to fuzzy search through command history
 bindkey '^R' fzf-history-widget
+
+# Search history
+# completion using arrow keys (based on history)
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
 
 
 # bindkey '^F' cd $(find . -type d | fzf)
@@ -145,3 +155,4 @@ bindkey '^R' fzf-history-widget
 # # Add the SSH key to the agent if not already added
 # ssh-add -l | grep -q '/home/iainm/.ssh/smart' || ssh-add /home/iainm/.ssh/smart
 
+source /home/iain/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
