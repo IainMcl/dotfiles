@@ -54,7 +54,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -136,6 +136,7 @@ export NVM_DIR="$HOME/.nvm"
 ###########
 
 unsetopt BEEP
+unsetopt correct # Stop correction confirmation
 
 # Enable fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -168,6 +169,10 @@ zle -N fzf_cd
 
 # Bind the function to Ctrl+F
 bindkey '^F' fzf_cd
+
+# The fuck
+eval $(thefuck --alias)
+
 # if [ -x "$SSH_AUTH_SOCK" ] || ! pgrep -u "$USER" ssh-agent > /dev/null; then
 #     eval "$(ssh-agent -s)"
 # fi
