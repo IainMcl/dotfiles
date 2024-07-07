@@ -1,3 +1,12 @@
+# TODO:  auto-suggestions: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# TODO:  syntax-highlighting: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# TODO:  zoxide:
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# cargo install zoxide
+# TODO: fzf:
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+# ~/.fzf/install
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -78,6 +87,7 @@ plugins=(
     copypath
     zsh-autosuggestions
     zsh-syntax-highlighting
+    web-search
     # alias-finder
 )
 
@@ -111,8 +121,8 @@ source $ZSH/oh-my-zsh.sh
 alias ls="eza --icons=always"
 
 # -------- Zoxide (better cd) --------
-# eval "$(zoxide init zsh)"
-# alias cd="z"
+eval "$(zoxide init zsh)"
+alias cd="z"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -128,17 +138,34 @@ unsetopt BEEP
 # Enable fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Bind Ctrl+R to fuzzy search through command history
-bindkey '^R' fzf-history-widget
 
 # Search history
 # completion using arrow keys (based on history)
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+# ~/.fzf/install
 
-# bindkey '^F' cd $(find . -type d | fzf)
+# Add this to .zshrc
+if ! zle -la | grep -q fzf-history-widget; then
+  autoload -Uz fzf-history-widget
+  zle -N fzf-history-widget
+  bindkey '^R' fzf-history-widget
+fi
 
+fzf_cd() {
+  local dir
+  dir=$(find . -type d -print | fzf)
+  if [[ -n "$dir" ]]; then
+    cd "$dir"
+  fi
+}
+
+zle -N fzf_cd
+
+# Bind the function to Ctrl+F
+bindkey '^F' fzf_cd
 # if [ -x "$SSH_AUTH_SOCK" ] || ! pgrep -u "$USER" ssh-agent > /dev/null; then
 #     eval "$(ssh-agent -s)"
 # fi
