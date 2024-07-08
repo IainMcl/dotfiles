@@ -15,8 +15,8 @@ chsh -s /usr/loca/bin/zsh
 
 # install om my zsh
 
-# brew install zsh-autosuggestions
-# brew instal zsh-syntax-highlighting
+brew install zsh-autosuggestions
+brew instal zsh-syntax-highlighting
 
 # iTerm2
 brew install iterm2 --cask
@@ -34,9 +34,12 @@ brew install neovim
 # Create Neovim link
 ln -s ~/dotfiles/nvim/ ~/.config/
 
+# Zsh
+ln -s ~/dotfiles/zsh ~/
+
 # Fish shell
-brew install fish
-ln -s ~/dotfiles/fish/ ~/.config/
+# brew install fish
+# ln -s ~/dotfiles/fish/ ~/.config/
 
 # Tmux
 brew install tmux
