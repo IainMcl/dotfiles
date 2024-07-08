@@ -31,7 +31,8 @@
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "defaultProfile": "{bb1b7388-e59f-4edb-8a15-253c5bc5c396}",
+    "experimental.rendering.software": true,
     "newTabMenu": 
     [
         {
@@ -56,7 +57,7 @@
                 "elevate": false,
                 "font": 
                 {
-                    "face": "0xProto Nerd Font Mono"
+                    "face": "CaskaydiaCove Nerd Font Mono"
                 },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
@@ -92,6 +93,35 @@
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": true,
                 "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "ubuntu.exe",
+                "font": 
+                {
+                    "face": "0xProto Nerd Font Mono"
+                },
+                "guid": "{bb1b7388-e59f-4edb-8a15-253c5bc5c396}",
+                "hidden": false,
+                "icon": "https://assets.ubuntu.com/v1/49a1a858-favicon-32x32.png",
+                "name": "Ubuntu",
+                "tabTitle": "Ubuntu"
+            },
+            {
+                "commandline": "\"C:\\Users\\P50084775\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShell_8wekyb3d8bbwe\\pwsh.exe\"",
+                "elevate": true,
+                "font": 
+                {
+                    "face": "CaskaydiaCove Nerd Font Mono"
+                },
+                "guid": "{8597aa36-fb82-42c3-8ac4-46507f404cf1}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/pwsh.png",
+                "intenseTextStyle": "bright",
+                "name": "PowerShell (Admin)",
+                "opacity": 100,
+                "scrollbarState": "hidden",
+                "startingDirectory": "C:\\src",
+                "useAcrylic": false
             }
         ]
     },
