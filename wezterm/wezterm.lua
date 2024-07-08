@@ -26,7 +26,8 @@ config.scrollback_lines = 3500
 -------------------
 -- config.default_cwd = "~/"
 -- open in full screen
-config.window_decorations = "RESIZE"
+-- config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE"
 config.window_padding = {
 	left = 0,
 	right = 0,
@@ -126,6 +127,33 @@ config.keys = {
 	{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
 	{ key = "+", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
 	{ key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
+	{ key = "t", mods = "LEADER", action = wezterm.action.ToggleFullScreen },
+	{ key = "f", mods = "LEADER", action = wezterm.action.TogglePaneZoomState },
+	{ key = "t", mods = "CTRL", action = wezterm.action.SpawnTab("DefaultDomain") },
+	{ key = "w", mods = "CTRL", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+	{
+		key = "b",
+		mods = "LEADER",
+		action = wezterm.action_callback(function()
+			print("toggle background")
+			local new_background = get_background_image()
+			print(new_background)
+			if new_background then
+				print("new background")
+				wezterm.set_background_image(new_background)
+				-- wezterm.set_backbackground = {
+				-- 	{
+				-- 		source = {
+				-- 			File = new_background,
+				-- 		},
+				-- 		hs = dimmer,
+				-- 		vertical_align = "Bottom",
+				-- 		horizontal_align = "Center",
+				-- 	},
+				-- }
+			end
+		end),
+	},
 }
 
 return config
