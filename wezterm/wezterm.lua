@@ -51,14 +51,15 @@ config.line_height = 1.1
 
 local function get_background_image()
 	-- Select a random background image from the BackgroundImages folder
-	local background_dir = "C:\\Users\\iainm\\wezterm\\BackgroundImages"
+	local home_dir = os.getenv("HOME") or os.getenv("USERPROFILE")
+	local background_dir = home_dir .. "/dotfiles/wezterm/BackgroundImages/"
 	local background_images = {
-		background_dir .. "\\firewatch_night.jpg",
-		background_dir .. "\\windows-error.jpg",
-		background_dir .. "\\salty_mountains.png",
-		background_dir .. "\\forrest.png",
-		background_dir .. "\\comfy-home.png",
-		background_dir .. "\\shaded_landscape.png",
+		background_dir .. "firewatch_night.jpg",
+		background_dir .. "windows-error.jpg",
+		background_dir .. "salty_mountains.png",
+		background_dir .. "forrest.png",
+		background_dir .. "comfy-home.png",
+		background_dir .. "shaded_landscape.png",
 	}
 	-- for _, file in ipairs(wezterm.glob("*", { dir = background_dir })) do
 	-- 	if file:match("%.png$") or file:match("%.jpg$") then
