@@ -111,15 +111,15 @@ return {
                     end,
                 },
                 mapping = {
-                    ["<Tab>"] = cmp.mapping.confirm({
+                    ["<CR>"] = cmp.mapping.confirm({
                         behavior = cmp.ConfirmBehavior.Replace,
                         select = true,
                     }),
+                    ["<TAB>"] = cmp.mapping.select_next_item(cmp_select),
                     ["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
                     ["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
                     -- ["<CR>"] = cmp.mapping.cmp.mapping.confirm({ select = true }),
                 },
-
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "luasnip" }, -- For luasnip users.
