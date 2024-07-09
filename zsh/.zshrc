@@ -180,6 +180,15 @@ bindkey '^F' fzf_cd
 # The fuck
 eval $(thefuck --alias)
 
+##############
+## Obsidian
+##############
+
+export VAULTS_PATH="$HOME/vaults/hitchhiker/"
+alias oo='cd $VAULTS_PATH && $VAULTS_PATH && nvim'
+export PATH=$PATH:$HOME/dotfiles/zsh/bin
+
+
 # if [ -x "$SSH_AUTH_SOCK" ] || ! pgrep -u "$USER" ssh-agent > /dev/null; then
 #     eval "$(ssh-agent -s)"
 # fi

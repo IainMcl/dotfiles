@@ -1,3 +1,14 @@
+-- WARN: Requires setup of obsidian and related folders
+-- https://obsidian.md/
+-- Folders:
+--  $VAULTS_PATH
+--      /hitchhiker
+--          /templates
+--              notes.md
+--              dailies.md
+--          /inbox
+--          /notes
+
 return {
     "epwalsh/obsidian.nvim",
     version = "*",
@@ -17,8 +28,8 @@ return {
         -- current markdown file being edited.
         workspaces = {
             {
-                name = "personal",
-                path = "/c/Users/iainm/vaults/personal",
+                name = "hitchhiker",
+                path = os.getenv("VAULTS_PATH"), --.. "/hitchhiker",
             },
             -- {
             --     name = "work",
@@ -39,11 +50,11 @@ return {
 
         daily_notes = {
             folder = "notes/dailies",
-            date_format = "%Y-%m-%d",
-            alias_format = "%B %-d, %Y",
+            date_format = "%Y_%m_%d",
+            alias_format = "%d %-B, %Y",
             default_tags = { "daily-notes" },
             -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-            template = nil
+            template = "daily.md"
         },
 
         -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
@@ -75,7 +86,15 @@ return {
                     return require("obsidian").util.smart_action()
                 end,
                 opts = { buffer = true, expr = true },
+            },
+            ["<leader>st"] = {
+                -- insert template from searching templates in telescope
+                action = function()
+                    vim.cmd("ObsidianTemplate")
+                end,
+                opts = { desc = "[S]earch Obsidian [T]emplates" }
             }
+
         },
 
         -- Where to put new notes. Valid options are
@@ -100,7 +119,7 @@ return {
                     suffix = suffix .. string.char(math.random(65, 90))
                 end
             end
-            return tostring(os.time()) .. "-" .. suffix
+            return tostring(os.date("%Y_%m_%d")) .. "-" .. suffix
         end,
 
         -- Optional, customize how note file names are generated given the ID, target directory, and title.
@@ -162,10 +181,25 @@ return {
         -- Optional, for templates (see below).
         templates = {
             folder = "templates",
-            date_format = "%Y-%m-%d",
-            time_format = "%H:%M",
+            date_format = "%Y_%m_%d",
+            time_format = "%H:%m",
             -- A map for custom variables, the key should be the variable and the value a function
-            substitutions = {},
+            substitutions = {
+                language = (function()
+                    local language = nil
+                    return function()
+                        if language == nil then
+                            language = vim.fn.input("Enter the programming language: ")
+                        end
+                        return language
+                    end
+                end)(),
+
+                description = function()
+                    local desc = vim.fn.input("Enter a one line description: ")
+                    return desc
+                end
+            },
         },
 
         -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
@@ -213,8 +247,9 @@ return {
 
         -- Optional, configure additional syntax highlighting / extmarks.
         -- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
+        conceallevel = 2,
         ui = {
-            enable = true,          -- set to false to disable all additional syntax features
+            enable = false,         -- set to false to disable all additional syntax features
             update_debounce = 200,  -- update delay after a text change (in milliseconds)
             max_file_length = 5000, -- disable UI features for files with more than this many lines
             -- Define how various check-boxes are displayed

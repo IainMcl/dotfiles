@@ -1,0 +1,18 @@
+#!/bin/zsh
+
+# From: https://github.com/agalea91/dotfiles
+
+# Create an [O]bsidian [N]ote
+# Usage $ on test
+# Creates
+
+if [ -z "$1" ]; then
+  echo "Error: A file name must be set, e.g. on \"the wonderful thing about tiggers\"."
+  exit 1
+fi
+
+file_name=$(echo "$1" | tr ' ' '_')
+formatted_file_name=$(date "+%Y_%m_%d")_${file_name}.md
+cd "$VAULTS_PATH" || exit
+touch "inbox/${formatted_file_name}"
+nvim "inbox/${formatted_file_name}"
