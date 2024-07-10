@@ -99,7 +99,6 @@ return {
                 end,
                 opts = { desc = "[S]earch Obsidian [T]emplates" }
             },
-            -- vim.keymap.set("n", "<leader>oo", ":cd $VAULTS_PATH<cr>", { desc = "[O]bsidian [O]pen" })
         },
 
         -- Where to put new notes. Valid options are

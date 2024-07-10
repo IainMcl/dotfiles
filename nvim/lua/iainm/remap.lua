@@ -42,6 +42,22 @@ vim.keymap.set("t", "<C-x>", "<C-\\><C-N>", { desc = "Terminal - escape terminal
 -- Loaded only if the environment variable $VAULTS_PATH exists
 local vaults_path = os.getenv("VAULTS_PATH")
 if vaults_path then
+    vim.keymap.set("n", "<leader>on", function()
+        local input = vim.fn.input("Note name: ")
+        if input == nil or input == "" then
+            print("Error: A file name must be set.")
+            return ""
+        end
+
+        -- Format the filename
+        local date = os.date("%Y_%m_%d")
+        local formatted_name = date .. "_" .. string.gsub(input, " ", "_") .. ".md"
+
+        -- Create the new file
+        local file_path = vaults_path .. "input/" .. formatted_name
+        print("File created: " .. file_path)
+        vim.cmd("edit " .. file_path)
+    end, { desc = "[O]bsidian [N]ote" })
     vim.api.nvim_set_keymap('n', '<leader>oo', ':cd $VAULTS_PATH<CR>',
         { noremap = true, silent = true, desc = "[O]pen [O]bsidian" })
 
@@ -51,5 +67,5 @@ if vaults_path then
 
     vim.api.nvim_set_keymap('n', '<leader>sn',
         [[<Cmd>lua local vaults_path = vim.fn.expand(os.getenv("VAULTS_PATH")); vim.cmd("Telescope live_grep search_dirs=" .. vaults_path)<CR>]],
-        { noremap = true, silent = true, desc = "[S]earch [N]otes - Obsidian" })
+        { noremap = true, silent = true, desc = "[S]earch [N]otes" })
 end
