@@ -1,4 +1,4 @@
--- WARN: Requires setup of obsidian and related folders
+--WARN: Requires setup of obsidian and related folders
 -- https://obsidian.md/
 -- Folders:
 --  $VAULTS_PATH
@@ -12,7 +12,9 @@
 return {
     "epwalsh/obsidian.nvim",
     version = "*",
-    lazy = true,
+    lazy = true, -- TODO: Turned off so that I can search files.
+    -- Could move these mappings to a different file so this isn't loaded by
+    -- default so will review
     ft = "markdown",
     dependencies = {
         -- Required.
@@ -96,8 +98,8 @@ return {
                     vim.cmd("ObsidianTemplate")
                 end,
                 opts = { desc = "[S]earch Obsidian [T]emplates" }
-            }
-
+            },
+            -- vim.keymap.set("n", "<leader>oo", ":cd $VAULTS_PATH<cr>", { desc = "[O]bsidian [O]pen" })
         },
 
         -- Where to put new notes. Valid options are

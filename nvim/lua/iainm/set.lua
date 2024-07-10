@@ -70,3 +70,6 @@ vim.opt.whichwrap:append("<>[]hl")
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.fn.has("win32") ~= 0
 vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH
+
+-- Obsidian conceal level for obsidian plugin
+vim.o.conceallevel = 2
