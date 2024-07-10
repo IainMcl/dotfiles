@@ -16,7 +16,7 @@ Note taking using [Obsidian](https://obsidian.md).
 
 ![Neovim tmux home](./assets/neovim_tmux_home.png)
 
-![Neovim file editing](./assets/neovim_file_editing.png)
+![Neovim file editing](./assets/neovim_file_edit.png)
 
 ![Wezterm](./assets/wezterm.png)
 
