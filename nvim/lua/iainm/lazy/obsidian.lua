@@ -30,6 +30,9 @@ return {
             {
                 name = "hitchhiker",
                 path = os.getenv("VAULTS_PATH"), --.. "/hitchhiker",
+                -- overrides = {
+                --     disable_formatter = true
+                -- }
             },
             -- {
             --     name = "work",
