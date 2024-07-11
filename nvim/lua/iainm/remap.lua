@@ -50,11 +50,12 @@ if vaults_path then
         end
 
         -- Format the filename
-        local date = os.date("%Y_%m_%d")
-        local formatted_name = date .. "_" .. string.gsub(input, " ", "_") .. ".md"
+        -- local date = os.date("%Y_%m_%d")
+        -- local formatted_name = date .. "_" .. string.gsub(input, " ", "_") .. ".md"
+        local formatted_name = string.gsub(input, " ", "_") .. ".md"
 
         -- Create the new file
-        local file_path = vaults_path .. "input/" .. formatted_name
+        local file_path = vaults_path .. "inbox/" .. formatted_name
         print("File created: " .. file_path)
         vim.cmd("edit " .. file_path)
     end, { desc = "[O]bsidian [N]ote" })

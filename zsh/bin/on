@@ -12,7 +12,8 @@ if [ -z "$1" ]; then
 fi
 
 file_name=$(echo "$1" | tr ' ' '_')
-formatted_file_name=$(date "+%Y_%m_%d")_${file_name}.md
+# formatted_file_name=$(date "+%Y_%m_%d")_${file_name}.md
+formatted_file_name=${file_name}.md
 cd "$VAULTS_PATH" || exit
 touch "inbox/${formatted_file_name}"
 nvim "inbox/${formatted_file_name}"

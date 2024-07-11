@@ -1,6 +1,9 @@
 return {
     {
         "github/copilot.vim",
+        config = function ()
+            require("copilot").setup({})
+        end
         -- vim.api.nvim_set_keymap('i', '^[[C', 'copilot#Accept("")', { silent = true, expr = true }),
     },
     {
