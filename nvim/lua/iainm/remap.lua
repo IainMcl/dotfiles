@@ -57,8 +57,10 @@ if vaults_path then
         print("File created: " .. file_path)
         vim.cmd("edit " .. file_path)
     end, { desc = "[O]bsidian [N]ote" })
-    vim.api.nvim_set_keymap('n', '<leader>oo', ':cd $VAULTS_PATH<CR>',
-        { noremap = true, silent = true, desc = "[O]pen [O]bsidian" })
+    vim.keymap.set('n', '<leader>oo', function ()
+        print("Opening Obsidian vault")
+        vim.cmd('cd $VAULTS_PATH')
+    end, { desc = "[O]pen [O]bsidian" })
 
     vim.api.nvim_set_keymap('n', '<leader>so',
         [[<Cmd>lua local vaults_path = vim.fn.expand(os.getenv("VAULTS_PATH")); vim.cmd("Telescope find_files search_dirs=" .. vaults_path)<CR>]],
