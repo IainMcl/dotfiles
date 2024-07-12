@@ -48,12 +48,10 @@ if vaults_path then
             print("Error: A file name must be set.")
             return ""
         end
-
         -- Format the filename
         -- local date = os.date("%Y_%m_%d")
         -- local formatted_name = date .. "_" .. string.gsub(input, " ", "_") .. ".md"
         local formatted_name = string.gsub(input, " ", "_") .. ".md"
-
         -- Create the new file
         local file_path = vaults_path .. "inbox/" .. formatted_name
         print("File created: " .. file_path)

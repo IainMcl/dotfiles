@@ -47,7 +47,7 @@ return {
         },
 
         -- Optional, if you keep notes in a specific subdirectory of your vault.
-        notes_subdir = "notes",
+        notes_subdir = "inbox",
 
         -- Optional, set the log level for obsidian.nvim. This is an integer corresponding to one of the log
         -- levels defined by "vim.log.levels.*".
@@ -123,7 +123,8 @@ return {
                     suffix = suffix .. string.char(math.random(65, 90))
                 end
             end
-            return tostring(os.date("%Y_%m_%d")) .. "-" .. suffix
+            -- return tostring(os.date("%Y_%m_%d")) .. "-" .. suffix
+            return suffix
         end,
 
         -- Optional, customize how note file names are generated given the ID, target directory, and title.
