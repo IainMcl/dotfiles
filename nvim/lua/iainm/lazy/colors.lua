@@ -19,9 +19,9 @@ return {
                     "kanagawa",
                     "kanagawa-lotus",
                     "kanagawa-dragon",
-                },                                                      -- Your list of installed colorschemes
-                themeConfigFile = "~/.config/nvim/lua/iainm/theme.lua", -- Described below
-                livePreview = true,                                     -- Apply theme while browsing. Default to true.
+                },                  -- Your list of installed colorschemes
+                -- themeConfigFile = "~/.config/nvim/lua/iainm/theme.lua", -- Described below
+                livePreview = true, -- Apply theme while browsing. Default to true.
             })
         end
     },

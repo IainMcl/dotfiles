@@ -19,12 +19,12 @@ brew install zsh-autosuggestions
 brew instal zsh-syntax-highlighting
 
 # iTerm2
-brew install iterm2 --cask
+# brew install iterm2 --cask
 
 # Nerd fonts
 
-bres tap homebrew/cask-fonts
-brew isntall --cask font-hack-nerd-font
+# brew tap homebrew/cask-fonts
+# brew isntall --cask font-hack-nerd-font
 
 brew install neovim
 
