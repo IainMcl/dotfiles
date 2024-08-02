@@ -1,3 +1,5 @@
 .DS_Store
 tmux/plugins/
 *packer_compiled.lua
+
+id_rsa_personal_github*

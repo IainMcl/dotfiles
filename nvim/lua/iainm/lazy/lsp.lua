@@ -71,18 +71,19 @@ return {
                                 pylsp = {
                                     plugins = {
                                         -- Formatter options
-                                        black = { enabled = true },
+                                        -- black = { enabled = true },
                                         autopep8 = { enabled = true },
                                         -- linter options
                                         pylint = { enabled = true, executable = "pylint" },
-                                        pyflakes = { enabled = false },
+                                        -- pyflakes = { enabled = false },
                                         pycodestyle = { enabled = false },
                                         -- type checker
                                         pylsp_mypy = { enabled = true },
                                         -- auto-completion options
                                         jedi_completion = { fuzzy = true },
                                         -- import sorting
-                                        pyls_isort = { enabled = true },
+                                        -- pyls_isort = { enabled = true },
+                                        ruffus = { enabled = true },
                                     },
                                 },
                             },

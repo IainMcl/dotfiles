@@ -93,6 +93,7 @@ plugins=(
     # zsh-syntax-highlighting
     web-search
     # alias-finder
+    aws
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -195,7 +196,7 @@ eval $(thefuck --alias)
 ## Obsidian
 ##############
 
-export VAULTS_PATH="$HOME/vaults/hitchhiker/"
+export VAULTS_PATH="$HOME/notes/hitchhiker/"
 alias oo='cd $VAULTS_PATH && $VAULTS_PATH && nvim'
 export PATH=$PATH:$HOME/dotfiles/zsh/bin
 
@@ -231,3 +232,12 @@ export PATH="$PATH:$HOME/.local/bin"
   export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# This should maybe do in .zprofile
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"

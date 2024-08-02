@@ -11,7 +11,8 @@ return {
                 "python",
                 "jsdoc",
                 "markdown",
-                "markdown_inline"
+                "markdown_inline",
+                "jsonc"
             },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)

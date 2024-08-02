@@ -27,7 +27,7 @@ config.scrollback_lines = 3500
 -- config.default_cwd = "~/"
 -- open in full screen
 -- config.window_decorations = "RESIZE"
-config.window_decorations = "TITLE"
+config.window_decorations = "TITLE | RESIZE"
 config.window_padding = {
     left = 0,
     right = 0,
@@ -46,7 +46,7 @@ config.unicode_version = 15 -- This may cause issues if so revert back to 9 (def
 -------------------
 config.color_scheme = "Catppuccin Mocha"
 -- config.font = wezterm.font_with_fallback({ "Fira Code", "Caskaydia Cove Nerd Font Complete Mono Regular" })
-config.font_size = 12
+config.font_size = 15
 config.adjust_window_size_when_changing_font_size = false
 config.line_height = 1.1
 
@@ -56,7 +56,7 @@ local function get_background_image()
     local background_dir = home_dir .. "/dotfiles/wezterm/BackgroundImages/"
     local background_images = {
         background_dir .. "firewatch_night.jpg",
-        background_dir .. "windows-error.jpg",
+        -- background_dir .. "windows-error.jpg",
         background_dir .. "salty_mountains.png",
         background_dir .. "forrest.png",
         background_dir .. "comfy-home.png",
@@ -73,26 +73,27 @@ local function get_background_image()
     return background_images[math.random(#background_images)]
 end
 
-local dimmer = { brightness = 0.2 }
+local dimmer = { brightness = 0.1 }
 
-config.background = {
-    {
-        source = {
-            File = get_background_image(),
-        },
-        hsb = dimmer,
-        vertical_align = "Bottom",
-        horizontal_align = "Center",
-    },
-}
+-- config.background = {
+--     {
+--         source = {
+--             File = get_background_image(),
+--         },
+--         hsb = dimmer,
+--         vertical_align = "Bottom",
+--         horizontal_align = "Center",
+--     },
+-- }
 -- config.window_background_image_mode = "Cover"
 config.window_background_image_hsb = {
     brightness = 0.1,
     hue = 1.0,
     saturation = 1.0,
 }
-config.macos_window_background_blur = 0.3
-config.win32_system_backdrop = "Acrylic"
+-- config.macos_window_background_blur = 10
+-- config.window_background_opacity = 0.75
+-- config.win32_system_backdrop = "Acrylic"
 config.hide_mouse_cursor_when_typing = true
 config.hide_tab_bar_if_only_one_tab = true
 
