@@ -71,10 +71,10 @@ return {
                                 pylsp = {
                                     plugins = {
                                         -- Formatter options
-                                        -- black = { enabled = true },
-                                        autopep8 = { enabled = true },
+                                        black = { enabled = false },
+                                        autopep8 = { enabled = false },
                                         -- linter options
-                                        pylint = { enabled = true, executable = "pylint" },
+                                        pylint = { enabled = true, executable = "pylint", args = { "--disable=E0401,C0301,R0903" } },
                                         -- pyflakes = { enabled = false },
                                         pycodestyle = { enabled = false },
                                         -- type checker
@@ -83,7 +83,7 @@ return {
                                         jedi_completion = { fuzzy = true },
                                         -- import sorting
                                         -- pyls_isort = { enabled = true },
-                                        ruffus = { enabled = true },
+                                        ruffus = { enabled = true, args = { "--max-line-length=120" } },
                                     },
                                 },
                             },
@@ -93,10 +93,10 @@ return {
             })
             require("mason-tool-installer").setup({
                 ensure_installed = {
-                    "black",
+                    -- "black",
                     "debugpy",
-                    "flake8",
-                    "isort",
+                    -- "flake8",
+                    -- "isort",
                     "mypy",
                     "pylint",
                 },

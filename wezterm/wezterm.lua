@@ -103,6 +103,19 @@ config.hide_tab_bar_if_only_one_tab = true
 -- config.window_background_opacity = 0.75
 -- config.window_background_blur = 8
 
+
+-------------------
+--- Mouse bindings
+-------------------
+
+config.mouse_bindings = {
+    {
+        event = { Up = { streak = 1, button = "Left" } },
+        mods = "CTRL",
+        action = "OpenLinkAtMouseCursor"
+    }
+}
+
 -------------------
 --- Keymaps
 -------------------

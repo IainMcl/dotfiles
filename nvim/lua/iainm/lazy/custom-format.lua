@@ -1,0 +1,21 @@
+return {}
+-- -- A custom format function triggered by <leader>ff that will format the current
+-- -- buffer by creating a new line at 80 chars ensuring that words are not broken
+--
+-- local disable_autoformat = function()
+--     -- Run the command :FormatDisable
+--     vim.cmd("FormatDisable")
+-- end
+--
+-- local enable_autoformat = function()
+--     -- Run the command :FormatEnable
+--     vim.cmd("FormatEnable")
+-- end
+--
+-- local custom_format = function()
+--     disable_autoformat()
+--     print("Custom format")
+--     enable_autoformat()
+-- end
+--
+-- vim.api.nvim_set_keymap("n", "<leader>cf", custom_format(), { noremap = true, silent = true })
