@@ -109,10 +109,11 @@ config.hide_tab_bar_if_only_one_tab = true
 -------------------
 
 config.mouse_bindings = {
+    -- Ctrl-click will open the link under the mouse cursor
     {
         event = { Up = { streak = 1, button = "Left" } },
         mods = "CTRL",
-        action = "OpenLinkAtMouseCursor"
+        action = wezterm.action.OpenLinkAtMouseCursor,
     }
 }
 
