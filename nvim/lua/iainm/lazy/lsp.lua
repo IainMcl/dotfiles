@@ -41,9 +41,18 @@ return {
                     "lua_ls",
                     -- "gopls",
                     "pylsp",
+                    -- "ts_ls",
+                    "tsserver",
+                    "ruff",
                 },
                 handlers = {
                     function(server_name) -- default handler (optional)
+                        -- TODO: Check this if it is still needed
+                        -- https://github.com/neovim/nvim-lspconfig/pull/3232
+
+                        if server_name == "tsserver" then
+                            server_name = "ts_ls"
+                        end
                         require("lspconfig")[server_name].setup({
                             capabilities = capabilities,
                         })
