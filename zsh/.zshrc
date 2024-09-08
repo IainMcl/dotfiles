@@ -17,6 +17,8 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export TERM="xterm-256color"
 
+export EDITOR="nvim"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -160,11 +162,46 @@ bindkey '^[[B' history-search-forward
 # Aliases
 # #########
 
+# MISC
 alias vim="nvim"
 alias vi="nvim"
 alias tm="tmux"
 alias cls="clear"
 alias lg="lazygit"
+
+# Ls
+alias la="ls -la"
+alias ll="ls -l"
+alias l="ls -CF"
+
+# git
+alias g="git"
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gca="git commit --all -m"
+alias gp="git push"
+alias gpl="git pull"
+alias gco="git checkout"
+alias gb="git branch"
+alias gb="git branch"
+alias gaa="git add --all"
+alias gclean="git reset --hard && git clean -dfx"
+alias glog="git log --oneline --decorate --all --graph"
+
+# system
+alias top="htop"
+
+# docker
+alias d="docker"
+alias dc="docker-compose"
+
+# quick open
+alias zshrc="$EDITOR ~/.zshrc"
+alias hosts="$EDITOR /etc/hosts"
+alias vimrc="$EDITOR ~/.config/nvim/init.lua"
+
 
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # ~/.fzf/install
