@@ -218,8 +218,8 @@ export PATH=$PATH:$HOME/dotfiles/zsh/bin
 # ssh-add -l | grep -q '/home/iainm/.ssh/smart' || ssh-add /home/iainm/.ssh/smart
 
 # source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ####
 # TK specific
