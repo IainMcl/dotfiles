@@ -1,7 +1,7 @@
 return {
     {
         "github/copilot.vim",
-        config = function ()
+        config = function()
             require("copilot").setup({})
         end
         -- vim.api.nvim_set_keymap('i', '^[[C', 'copilot#Accept("")', { silent = true, expr = true }),
@@ -20,6 +20,41 @@ return {
             -- See Configuration section for rest
             window = {
                 width = 80,
+            },
+            mappings = {
+                complete = {
+                    detail = 'Use @<Tab> or /<Tab> for options.',
+                    insert = '<Tab>',
+                },
+                close = {
+                    normal = 'q',
+                    insert = '<C-c>'
+                },
+                reset = {
+                    normal = '<C-S-r>',
+                    insert = '<C-S-r>'
+                },
+                submit_prompt = {
+                    normal = '<CR>',
+                    insert = '<C-CR>'
+                },
+                accept_diff = {
+                    normal = '<C-y>',
+                    insert = '<C-y>'
+                },
+                yank_diff = {
+                    normal = 'gy',
+                    register = '"',
+                },
+                show_diff = {
+                    normal = 'gd'
+                },
+                show_system_prompt = {
+                    normal = 'gp'
+                },
+                show_user_selection = {
+                    normal = 'gs'
+                },
             },
         },
         vim.keymap.set("n", "<leader>ct", function()
