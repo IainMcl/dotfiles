@@ -40,7 +40,7 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     -- "gopls",
-                    "pylsp",
+                    -- "pylsp",
                     -- "ts_ls",
                     "tsserver",
                     "ruff",
@@ -102,12 +102,13 @@ return {
             })
             require("mason-tool-installer").setup({
                 ensure_installed = {
-                    -- "black",
+                    "black",
                     "debugpy",
                     -- "flake8",
-                    -- "isort",
+                    "isort",
                     "mypy",
-                    "pylint",
+                    -- "pylint",
+                    "ruff"
                 },
             })
             vim.api.nvim_command("MasonToolsInstall")
@@ -172,9 +173,8 @@ return {
         config = function()
             require("lint").linters_by_ft = {
                 python = {
-                    "flake8",
+                    "ruff",
                     "mypy",
-                    "pylint",
                 },
             }
 
