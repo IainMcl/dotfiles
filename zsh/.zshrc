@@ -227,4 +227,35 @@ if [[ "$(hostname)" == "$WORK_HOST" ]]; then
     eval "$(pyenv init --path)"
     export PATH="/usr/local/opt/libqp/bin:$PATH"
 
+    test_backend () {
+        cd ~/dev/backend
+        # Default to WARN errors
+        local log_level="--log-cli-level=WARN"
+        local test=""
+
+        if [[ "$#" -eq 2 ]]
+        then
+            log_level="--log-cli-level=$1"
+            test=$2
+        elif [[ "$#" -eq 1 ]]
+        then
+            test=$1
+        else
+            echo "Usage:"
+            echo "    test_backend [LOG_LEVEL] test"
+            echo "Where:"
+            echo "    [LOG_LEVEL] - optional log level value, DEBUG, INFO, WARN, ERROR"
+            echo "    test        - path to the test file to be run and optionally test"
+            echo "Example:"
+            echo "    test_backend payments/services/tests/test_vcc_provider_preference_service.py"
+            echo "    test_backend DEBUG payments/services/tests/test_vcc_provider_preference_service.py"
+            echo "    test_backend DEBUG payments/services/tests/test_vcc_provider_preference_service.py::VCCProviderPreferenceTestCase"
+            return
+        fi
+        # Strip 'travelperk/' prefix if present
+        if [[ "$test" == travelperk/* ]]; then
+            test="${test#travelperk/}"
+        fi
+        DJANGO_CONFIGURATION=test docker compose run --rm django scripts/tools/run-tests.sh -vv --create-db "$log_level" "$test"
+    }
 fi
