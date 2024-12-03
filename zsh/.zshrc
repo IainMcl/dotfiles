@@ -119,8 +119,7 @@ alias ll="ls -l"
 alias g="git"
 alias gs="git status"
 alias ga="git add"
-alias gc="git commit"
-alias gcm="git commit -m"
+alias gc="git commit --all -m"
 alias gca="git commit --all -m"
 alias gp="git push"
 alias gpl="git pull"
@@ -203,6 +202,11 @@ export PATH=$PATH:$HOME/dotfiles/zsh/bin
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+uuid() {
+    local uuid=$(uuidgen | awk '{print tolower($0)}' | tr -d '\n')
+    echo $uuid | pbcopy
+    echo $uuid
+}
 
 ####
 # TK specific
@@ -228,7 +232,7 @@ if [[ "$(hostname)" == "$WORK_HOST" ]]; then
     export PATH="/usr/local/opt/libqp/bin:$PATH"
 
     test_backend () {
-        cd ~/dev/backend
+        cd ~/src/backend
         # Default to WARN errors
         local log_level="--log-cli-level=WARN"
         local test=""
@@ -256,6 +260,9 @@ if [[ "$(hostname)" == "$WORK_HOST" ]]; then
         if [[ "$test" == travelperk/* ]]; then
             test="${test#travelperk/}"
         fi
-        DJANGO_CONFIGURATION=test docker compose run --rm django scripts/tools/run-tests.sh -vv --create-db "$log_level" "$test"
+        # DJANGO_CONFIGURATION=test docker compose run --rm django scripts/tools/run-tests.sh -vv --create-db "$log_level" "$test"
+        docker compose run -e DJANGO_CONFIGURATION=Test --rm django scripts/tools/run-tests.sh -vv --create-db "$log_level" "$test"
     }
 fi
+
+alias tkl="tk login && export AWS_PROFILE=tooling"
