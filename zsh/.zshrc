@@ -16,7 +16,22 @@ export TERM="xterm-256color"
 
 export EDITOR="nvim"
 export WORK_HOST="TK3695"
-export PERSONAL_HOST="iainm"
+export PERSONAL_HOST="pop-os"
+
+###########
+# Path
+###########
+
+export PATH="$PATH:~/.local/bin/"
+export PATH="$PATH:/opt/nvim/"
+export PATH="$PATH:~/.cargo/bin/"
+export PATH="$PATH:/home/iainmclaughlan/.cargo/bin"
+export PATH="$PATH:/usr/local/go/bin"
+
+if [[ "$(hostname)" == "$PERSONAL_HOST" ]]; then
+    export PATH="$PATH:/home/iainmclaughlan/src/Todo.go/bin"
+fi
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -60,8 +75,8 @@ plugins=(
     history
     encode64
     copypath
-    # zsh-autosuggestions
-    # zsh-syntax-highlighting
+    zsh-autosuggestions
+    zsh-syntax-highlighting
     web-search
     aws
 )
@@ -76,12 +91,6 @@ alias cd="z"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-###########
-# Path
-###########
-
-export PATH="$PATH:~/.local/bin"
 
 ###########
 # User config
@@ -109,6 +118,7 @@ alias vi="nvim"
 alias tm="tmux"
 alias cls="clear"
 alias lg="lazygit"
+alias bat="batcat"
 
 # Ls
 alias ls="eza --icons=always"
@@ -176,7 +186,7 @@ eval $(thefuck --alias)
 if [[ "$(hostname)" == "$WORK_HOST" ]]; then
     export VAULTS_PATH="$HOME/notes/hitchhiker/"
 else
-    export VAULTS_PATH='$HOME/vaults/hitchhiker/'
+    export VAULTS_PATH="$HOME/notes/hitchhiker/"
 fi
 alias oo='cd $VAULTS_PATH && $VAULTS_PATH && nvim'
 export PATH=$PATH:$HOME/dotfiles/zsh/bin
@@ -199,14 +209,27 @@ export PATH=$PATH:$HOME/dotfiles/zsh/bin
 # ssh-add -l | grep -q '/home/iainm/.ssh/smart' || ssh-add /home/iainm/.ssh/smart
 
 # source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $HOME/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 uuid() {
     local uuid=$(uuidgen | awk '{print tolower($0)}' | tr -d '\n')
     echo $uuid | pbcopy
     echo $uuid
 }
+
+
+####
+# Python
+####
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+
+eval "$(pyenv virtualenv-init -)"
 
 ####
 # TK specific
