@@ -194,7 +194,7 @@ config.keys = {
 		action = wezterm.action.ActivateTabRelative(1),
 	},
 	{
-		key = "n",
+		key = "w",
 		mods = "LEADER",
 		action = wezterm.action.ShowTabNavigator,
 	},
