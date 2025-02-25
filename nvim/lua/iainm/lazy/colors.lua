@@ -14,6 +14,7 @@ return {
 					"tokyonight-day",
 					"tokyonight-moon",
 					"catppuccin",
+					"catppuccin-frappe",
 					"catppuccin-latte",
 					"catppuccin-mocha",
 					"kanagawa",
