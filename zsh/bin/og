@@ -13,8 +13,9 @@ find "$VAULT_DIR$SOURCE_DIR" -type f -name "*.md" | while read -r file; do
 
   # Extract the hub from the file. This assumes the hub is on the line immediately following "hub:"
 
-  hub=$(awk '/hub:/{getline; print; exit}' "$file" | sed -e 's/^ *- *//' -e 's/^ *//;s/ *$//')
-  echo "Found hub $hub"
+  # hub=$(awk '/hub:/{getline; print; exit}' "$file" | sed -e 's/^ *- *//' -e 's/^ *//;s/ *$//')
+  # echo "Found hub $hub"
+hub=$(awk '/^---/{flag=1; next} /^---/{flag=0} flag && /^hub:/{print $2; exit}' "$file" | sed -e 's/^ *- *//' -e 's/^ *//;s/ *$//')
 
   # If a hub is found, proceed with moving the file
   if [ ! -z "$hub" ]; then
