@@ -32,6 +32,10 @@ if [[ "$(hostname)" == "$PERSONAL_HOST" ]]; then
     export PATH="$PATH:/home/iainmclaughlan/src/Todo.go/bin"
 fi
 
+# Local config file. This contains things like secrets
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

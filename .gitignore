@@ -3,3 +3,6 @@ tmux/plugins/
 *packer_compiled.lua
 
 id_rsa_personal_github*
+
+# Local files
+*.local
