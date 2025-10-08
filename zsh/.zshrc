@@ -15,7 +15,8 @@ export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
 
 export EDITOR="nvim"
-export WORK_HOST="TK3695"
+# export WORK_HOST="TK3695"
+export WORK_HOST="TK-H3H4FMFPC2"
 export PERSONAL_HOST="pop-os"
 
 ###########
