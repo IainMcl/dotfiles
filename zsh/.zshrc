@@ -114,6 +114,12 @@ unsetopt correct # Stop correction confirmation
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
+# Word-by-word navigation
+# Ctrl+LeftArrow
+bindkey '^[[D' backward-word
+# Ctrl+RightArrow
+bindkey '^[[C' forward-word
+
 ###########
 # Aliases
 # #########

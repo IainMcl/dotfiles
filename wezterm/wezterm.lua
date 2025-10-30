@@ -123,6 +123,19 @@ function tab_title(tab_info)
 	if title and #title > 0 then
 		return title
 	end
+
+	local pane_cwd = tab_info.active_pane.cwd
+	if pane_cwd and #pane_cwd > 0 then
+		-- The CWD is a URL; we want to extract the path component
+		local uri = wezterm.url.parse(pane_cwd)
+		-- and then we want the basename of the path
+		-- uri.path will be `/path/to/basename`
+		local basename = uri.path:match("([^/]+)$")
+		if basename and #basename > 0 then
+			return basename
+		end
+	end
+
 	-- Otherwise, use the title from the active pane
 	-- in that tab
 	return tab_info.active_pane.title
@@ -260,31 +273,20 @@ config.keys = {
 	split_nav("j"),
 	split_nav("k"),
 	split_nav("l"),
-
-	-- {
-	-- 	key = "b",
-	-- 	mods = "LEADER",
-	-- 	action = wezterm.action_callback(function()
-	-- 		print("toggle background")
-	-- 		local new_background = get_background_image()
-	-- 		print(new_background)
-	-- 		if new_background then
-	-- 			print("new background")
-	-- 			wezterm.set_background_image(new_background)
-	-- 			-- wezterm.set_backbackground = {
-	-- 			-- 	{
-	-- 			-- 		source = {
-	-- 			-- 			File = new_background,
-	-- 			-- 		},
-	-- 			-- 		hs = dimmer,
-	-- 			-- 		vertical_align = "Bottom",
-	-- 			-- 		horizontal_align = "Center",
-	-- 			-- 	},
-	-- 			-- }
-	-- 		end
-	-- 	end),
-	-- },
+	{
+		key = "r",
+		mods = "LEADER",
+		action = wezterm.action.PromptInputLine({
+			description = "Enter new name for tab:",
+			action = wezterm.action_callback(function(window, pane, line)
+				if line then
+					window:active_tab():set_title(line)
+				end
+			end),
+		}),
+	},
 }
+
 for i = 1, 9 do
 	table.insert(config.keys, {
 		key = tostring(i),
