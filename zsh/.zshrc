@@ -261,7 +261,7 @@ if [[ "$(hostname)" == "$WORK_HOST" ]]; then
     export PATH="/usr/local/opt/libqp/bin:$PATH"
 
     test_backend () {
-        cd ~/src/backend
+        # cd ~/src/backend
         # Default to WARN errors
         local log_level="--log-cli-level=WARN"
         local test=""
