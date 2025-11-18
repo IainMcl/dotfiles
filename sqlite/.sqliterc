@@ -1,2 +1,4 @@
 .mode box
 .headers on
+.timer on
+.prompt '> '
