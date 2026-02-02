@@ -41,3 +41,58 @@ local function open_in_obsidian()
 end
 
 vim.api.nvim_create_user_command('OpenInObsidian', open_in_obsidian, {})
+
+local function create_long_term_todo()
+  local vaults_path = os.getenv("VAULTS_PATH")
+  if not vaults_path or vaults_path == "" then
+    print("Error: VAULTS_PATH environment variable not set.")
+    return
+  end
+
+  -- Normalize vaults_path by removing any trailing slash
+  local normalized_vault_path = vaults_path:gsub("/$", "")
+
+  -- Read the template file
+  local template_path = normalized_vault_path .. "/templates/long_term_todo.md"
+  local template_file = io.open(template_path, "r")
+  if not template_file then
+    print("Error: Template file not found at " .. template_path)
+    return
+  end
+  local template_content = template_file:read("*all")
+  template_file:close()
+
+  -- Prompt for the todo name
+  local input = vim.fn.input("Long-term todo name: ")
+  if input == nil or input == "" then
+    print("Error: A todo name must be set.")
+    return
+  end
+
+  -- Format the name (replace spaces with underscores)
+  local formatted_name = string.gsub(input, " ", "_")
+
+  -- Generate filename with date prefix
+  local timestamp = os.date("%Y_%m_%d")
+  local filename = timestamp .. "_" .. formatted_name .. ".md"
+  local file_path = normalized_vault_path .. "/notes/long_term_todos/" .. filename
+
+  -- Ensure the directory exists
+  local dir_path = normalized_vault_path .. "/notes/long_term_todos"
+  vim.fn.mkdir(dir_path, "p")
+
+  -- Write the template content to the new file
+  local new_file = io.open(file_path, "w")
+  if not new_file then
+    print("Error: Could not create file at " .. file_path)
+    return
+  end
+  new_file:write(template_content)
+  new_file:close()
+
+  -- Open the new file for editing
+  vim.cmd("edit " .. file_path)
+  print("Created long-term todo: " .. filename)
+end
+
+vim.api.nvim_create_user_command('ObsidianLongTermTodo', create_long_term_todo, {})

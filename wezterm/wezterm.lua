@@ -287,6 +287,18 @@ config.keys = {
 	},
 }
 
+-- Send xterm-style escape codes for CMD+Arrow keys on macOS.
+-- table.insert(config.keys, {
+-- 	key = "Left",
+-- 	mods = "SUPER",
+-- 	action = wezterm.action.SendString("\x1b[1;5D"),
+-- })
+-- table.insert(config.keys, {
+-- 	key = "Right",
+-- 	mods = "SUPER",
+-- 	action = wezterm.action.SendString("\x1b[1;5C"),
+-- })
+
 for i = 1, 9 do
 	table.insert(config.keys, {
 		key = tostring(i),

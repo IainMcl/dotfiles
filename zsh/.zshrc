@@ -114,11 +114,13 @@ unsetopt correct # Stop correction confirmation
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-# Word-by-word navigation
-# Ctrl+LeftArrow
-bindkey '^[[D' backward-word
-# Ctrl+RightArrow
-bindkey '^[[C' forward-word
+# Arrow key navigation
+# Normal arrow keys - move character by character
+bindkey '\eOD' backward-char
+bindkey '\eOC' forward-char
+# CMD+Arrow keys - move word by word
+bindkey '\e[1;5D' backward-word
+bindkey '\e[1;5C' forward-word
 
 ###########
 # Aliases
