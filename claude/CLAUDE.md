@@ -32,3 +32,8 @@ When writing functions that depend on each other, keep the ordering intuitive:
 - Look for PR templates in the repository root or `.github/PULL_REQUEST_TEMPLATE.md`.
 - Use the `gh` CLI to create draft PRs with appropriate titles and bodies.
 - If the template requires a Jira link, extract the ticket number from the branch name.
+
+## Committing and Pull request descriptions
+
+Do not sign off commits and pull request descriptions saying "Generated with Claude Code" or similar.
+When replying to comments on pull requests only sign off with `-Claude`.

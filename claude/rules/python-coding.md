@@ -17,4 +17,29 @@ readability and maintainability.
 `Set`, and `Tuple` from the `typing` module, unless you need to specify type
 parameters. For optional parameters use `| None` instead of `Optional`.
 
+## Logging
+
+When logging messages add the additional context in the `extra` parameter of the
+logging methods. For example:
+```python
+logger.info("Processing item", extra={"item_id": item.id})
+```
+
+When logging exceptions use `logger.exception` instead of `logger.error` to
+automatically include the stack trace. For example:
+```python
+try:
+    process_item(item)
+except Exception:
+    logger.exception("Failed to process item", extra={"item_id": item.id})
+```
+
+**DO NOT** include exception information in the log message itself. For example,
+avoid doing this:
+```python
+try:
+    process_item(item)
+except Exception as e:
+    logger.error(f"Failed to process item: {e}", extra={"item_id": item.id})
+```
 
