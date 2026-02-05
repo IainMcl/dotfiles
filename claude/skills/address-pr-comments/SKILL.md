@@ -12,7 +12,6 @@ Use GitHub CLI (`gh`) to fetch PR comments.
 **Bots to ignore completely:**
 - `tk-elbot-2-0`
 - `atlantis-bot`
-- `github-copilot` / `copilot`
 
 **Resolved conversations:**
 - Explicitly marked as resolved
