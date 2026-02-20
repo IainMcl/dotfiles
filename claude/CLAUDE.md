@@ -37,3 +37,9 @@ When writing functions that depend on each other, keep the ordering intuitive:
 
 Do not sign off commits and pull request descriptions saying "Generated with Claude Code" or similar.
 When replying to comments on pull requests only sign off with `-Claude`.
+
+## Improving AI agents
+
+When completing work if there are commands or workflows that fail - For example
+getting comments from a GitHub PR - please ask if we should add a new skill with
+the correct resolution or update an existing skill that led to failing commands.
