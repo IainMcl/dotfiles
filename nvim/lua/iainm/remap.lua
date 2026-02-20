@@ -8,12 +8,6 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagn
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
---  See `:help wincmd` for a list of all window commands
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
-
 -- Buffer resize
 vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "Equalize window sizes" })
 vim.keymap.set("n", "<leader>+", "<C-w>+10", { desc = "Increase window height" })
@@ -37,6 +31,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- terminal
 vim.keymap.set("t", "<C-x>", "<C-\\><C-N>", { desc = "Terminal - escape terminal mode" })
+
+-- Terminal split navigation
+vim.keymap.set("t", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", { desc = "Terminal - navigate left" })
+vim.keymap.set("t", "<C-j>", "<Cmd>NvimTmuxNavigateDown<CR>", { desc = "Terminal - navigate down" })
+vim.keymap.set("t", "<C-k>", "<Cmd>NvimTmuxNavigateUp<CR>", { desc = "Terminal - navigate up" })
+vim.keymap.set("t", "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>", { desc = "Terminal - navigate right" })
 
 -- Obsidian
 -- Loaded only if the environment variable $VAULTS_PATH exists
