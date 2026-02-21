@@ -5,6 +5,18 @@
 **Always** read the project's README and CONTRIBUTING files before starting work
 in a new thread.
 
+## Making changes
+
+When making changes ensure that you are on a relevant branch. Very rarely
+should work be done directly on the main branch. If you are unsure about
+which branch to work on, ask for guidance.
+
+When creating new branches make sure to branch from the most up to date
+version of origin main. If there are cases where you need to branch from
+a different branch, make sure to pull the latest changes from that branch
+before creating your new branch. Ideally in these cases ask before branching
+not from origin main.
+
 ## Comments
 
 - Only add comments that explain *why* something non-obvious or hacky is happening.
