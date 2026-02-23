@@ -1,1 +1,7 @@
-{}
+{
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/iainmclaughlan/.claude/statusline-command.sh"
+  },
+  "effortLevel": "medium"
+}
