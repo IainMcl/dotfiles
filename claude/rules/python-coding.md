@@ -43,3 +43,8 @@ except Exception as e:
     logger.error(f"Failed to process item: {e}", extra={"item_id": item.id})
 ```
 
+## Module imports
+
+Avoid using function level imports wherever possible.  All imports should be at
+the top of the file.  The only exceptions to this are if there are issues with
+top level imports like circular imports.

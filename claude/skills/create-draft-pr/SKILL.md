@@ -21,6 +21,13 @@ If the template requires a Jira link and provides a root URL, use the root URL a
 If there are post deployment steps, include them in the PR description.
 If there are any post deployment tests that need to be run, include them in the PR description.
 
+## Things not to include
+
+Do **not** include a description of files changed.  **Only** describe the high
+level changes.  If there are points that a reviewer should pay particular
+attention to.  Then after creating the draft PR, add a comment on the specific
+lines explaining what should be looked at.
+
 ## Create draft PR
 Create a draft PR using the command:
 
@@ -33,3 +40,8 @@ Return the URL.
 ## If the current branch isn't published
 
 If the current branch is not published, push with `-u`.
+
+## Signing
+
+Don't use any form of signing at the end of a draft pull request or commits
+so don't add `-agent`, `-Claude`, or `written with...`.

@@ -17,6 +17,11 @@ a different branch, make sure to pull the latest changes from that branch
 before creating your new branch. Ideally in these cases ask before branching
 not from origin main.
 
+### Read relevant rule and skill files
+
+When working in a particular language e.g. python, go, ... look for relevant skill and rule files.
+For example when working in python ensure you have read @~/.claude/rules/python-coding.md.
+
 ## Comments
 
 - Only add comments that explain *why* something non-obvious or hacky is happening.
@@ -24,12 +29,6 @@ not from origin main.
   self-explanatory through clear naming and structure.
 - Don't sign work saying "Generated with Claude Code" or similar attribution. Keep
   comments focused on explaining the code itself.
-
-## Module imports
-
-Avoid using function level imports wherever possible.  All imports should be at
-the top of the file.  The only exceptions to this are if there are issues with
-top level imports like circular imports.
 
 ## Function Ordering
 
