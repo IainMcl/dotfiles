@@ -55,3 +55,26 @@ When replying to comments on pull requests only sign off with `-Claude`.
 When completing work if there are commands or workflows that fail - For example
 getting comments from a GitHub PR - please ask if we should add a new skill with
 the correct resolution or update an existing skill that led to failing commands.
+
+## Token Efficiency — IMPORTANT
+
+CLAUDE MUST warn the user if any of these patterns appear, before spending tokens on them:
+
+| Pattern | Warning to give |
+|---|---|
+| Vague task with no file refs or success criteria | "What files are involved? How will we verify this is correct?" |
+| "Investigate / explore / look into" without a scope | "This could read many files. Should I use a subagent, or can we scope it to specific files/directories?" |
+| Correcting the same mistake a second time | "We've corrected this twice. Let's `/clear` and rewrite the prompt with what we've learned." |
+| Mixing unrelated tasks in the same session | "This looks unrelated to the current task. Run `/clear` first to avoid noisy context." |
+| Jumping to implementation on a complex/multi-file change | "Should we explore + plan first before coding? Use Plan Mode (`Shift+Tab`) for uncertain changes." |
+| No verification criteria for a coding task | "How will we verify this works? A test, a command, or expected output to check against?" |
+| Simple/read-only request (lookup, explanation, single-file search) being handled by Sonnet/Opus | "This looks like a simple task. Consider switching to Haiku (`/model haiku`) to save cost and latency." |
+| Using Opus for a task that isn't: frontier reasoning on the hardest problems, sustained multi-file agentic coding, or deep multi-step web research | "Sonnet 4.6 matches or beats Opus on most coding and document tasks at ~40% of the cost. Switch with `/model sonnet`." |
+
+When compacting, always preserve: the list of modified files, any API endpoints being worked on, and which verification steps have been completed.
+
+### Dynamic model shifting
+
+**Before** getting deep into a task decide which available AI model is most
+appropriate for the task.  If the currently selected model is not best for the
+task suggest to the user to switch models.

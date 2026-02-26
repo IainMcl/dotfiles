@@ -1,7 +1,10 @@
 {
   "statusLine": {
     "type": "command",
-    "command": "bash /home/iainmclaughlan/.claude/statusline-command.sh"
+    "command": "bash /Users/iain.mclaughlan/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true
   },
   "effortLevel": "medium"
 }
