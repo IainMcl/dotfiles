@@ -5,11 +5,6 @@ description: Instructions for committing code changes. Use when committing code,
 
 # Committing Code Changes
 
-## Before Committing
-
-1. **Verify you're on a feature branch** - never commit directly to main
-2. **Run relevant tests** - be smart about which tests to run based on the changes made, don't run the entire test suite for unrelated changes
-
 ## Pre-commit Hooks
 
 Pre-commit hooks will run and may modify files. If hooks modify files:
@@ -38,12 +33,6 @@ Pre-commit hooks will run and may modify files. If hooks modify files:
   - Bullet lists of every file or function changed
   - Vague fluff like "make more resilient", "make more scalable", "handles gracefully"
   - Line-by-line summaries of the code changes
-
-**DO NOT Include:**
-- No "Co-Authored-By" lines
-- No "Generated with Claude Code" or similar attribution
-- No emojis
-- Keep the commit message clean and professional
 
 ## Pushing Changes
 
