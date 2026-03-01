@@ -1,80 +1,45 @@
 # Coding guidelines
 
-## Starting new work
+## No attribution
 
-**Always** read the project's README and CONTRIBUTING files before starting work
-in a new thread.
-
-## Making changes
-
-When making changes ensure that you are on a relevant branch. Very rarely
-should work be done directly on the main branch. If you are unsure about
-which branch to work on, ask for guidance.
-
-When creating new branches make sure to branch from the most up to date
-version of origin main. If there are cases where you need to branch from
-a different branch, make sure to pull the latest changes from that branch
-before creating your new branch. Ideally in these cases ask before branching
-not from origin main.
-
-### Read relevant rule and skill files
-
-When working in a particular language e.g. python, go, ... look for relevant skill and rule files.
-For example when working in python ensure you have read @~/.claude/rules/python-coding.md.
+Never add "Generated with Claude Code", `Co-Authored-By`, or similar attribution to commits, PRs, code comments, or any output. Exception: when replying to PR comments, sign off with `-Claude`.
 
 ## Comments
 
-- Only add comments that explain *why* something non-obvious or hacky is happening.
-- Avoid comments that explain *what* the code is doing; instead, make the code
-  self-explanatory through clear naming and structure.
-- Don't sign work saying "Generated with Claude Code" or similar attribution. Keep
-  comments focused on explaining the code itself.
+- Only explain *why*, not *what*. Make code self-explanatory through naming and structure.
 
-## Function Ordering
+## Function ordering
 
-When writing functions that depend on each other, keep the ordering intuitive:
-- If function A calls function B, define function A first, then function B underneath
-- The caller should appear before the callee
-- This creates a top-down reading flow where high-level logic comes before implementation details
+Define callers before callees — top-down reading flow.
 
-## Creating Pull Requests
+## Branch discipline
 
-- Follow the project's CONTRIBUTING guidelines for PR creation.
-- Look for PR templates in the repository root or `.github/PULL_REQUEST_TEMPLATE.md`.
-- Use the `gh` CLI to create draft PRs with appropriate titles and bodies.
-- If the template requires a Jira link, extract the ticket number from the branch name.
+- Never work directly on `main`. If on `main`, ask before proceeding.
+- Branch from up-to-date `origin/main`. If branching from elsewhere, ask first.
 
-## Committing and Pull request descriptions
+## Language-specific skills
 
-Do not sign off commits and pull request descriptions saying "Generated with Claude Code" or similar.
-This includes `Co-Authored-By` lines — never add them to commits.
-When replying to comments on pull requests only sign off with `-Claude`.
+When working in a particular language, look for a matching skill (e.g. `python-coding` for Python).
 
-## Improving AI agents
+## Suggest rule/skill improvements
 
-When completing work if there are commands or workflows that fail - For example
-getting comments from a GitHub PR - please ask if we should add a new skill with
-the correct resolution or update an existing skill that led to failing commands.
+If a workflow or command fails, suggest adding or updating a skill to handle it correctly next time.
 
-## Token Efficiency — IMPORTANT
+## Token efficiency
 
-CLAUDE MUST warn the user if any of these patterns appear, before spending tokens on them:
+Warn the user before spending tokens on these patterns:
 
-| Pattern | Warning to give |
+| Pattern | Warning |
 |---|---|
-| Vague task with no file refs or success criteria | "What files are involved? How will we verify this is correct?" |
-| "Investigate / explore / look into" without a scope | "This could read many files. Should I use a subagent, or can we scope it to specific files/directories?" |
-| Correcting the same mistake a second time | "We've corrected this twice. Let's `/clear` and rewrite the prompt with what we've learned." |
-| Mixing unrelated tasks in the same session | "This looks unrelated to the current task. Run `/clear` first to avoid noisy context." |
-| Jumping to implementation on a complex/multi-file change | "Should we explore + plan first before coding? Use Plan Mode (`Shift+Tab`) for uncertain changes." |
-| No verification criteria for a coding task | "How will we verify this works? A test, a command, or expected output to check against?" |
-| Simple/read-only request (lookup, explanation, single-file search) being handled by Sonnet/Opus | "This looks like a simple task. Consider switching to Haiku (`/model haiku`) to save cost and latency." |
-| Using Opus for a task that isn't: frontier reasoning on the hardest problems, sustained multi-file agentic coding, or deep multi-step web research | "Sonnet 4.6 matches or beats Opus on most coding and document tasks at ~40% of the cost. Switch with `/model sonnet`." |
+| Vague task, no file refs or success criteria | "What files? How do we verify?" |
+| Unbounded "investigate/explore" | "Scope this or use a subagent?" |
+| Same mistake corrected twice | "Let's `/clear` and rewrite the prompt." |
+| Unrelated tasks in one session | "Run `/clear` first." |
+| Complex change without planning | "Use Plan Mode (`Shift+Tab`)?" |
+| No verification criteria | "How will we verify this works?" |
+| Simple task on Sonnet/Opus | "Switch to Haiku (`/model haiku`)." |
+| Non-frontier task on Opus | "Sonnet handles this — `/model sonnet`." |
 
-When compacting, always preserve: the list of modified files, any API endpoints being worked on, and which verification steps have been completed.
+Before starting a task, suggest the best model if the current one isn't ideal.
 
-### Dynamic model shifting
-
-**Before** getting deep into a task decide which available AI model is most
-appropriate for the task.  If the currently selected model is not best for the
-task suggest to the user to switch models.
+On compaction, preserve: modified files list, API endpoints, completed verification steps.

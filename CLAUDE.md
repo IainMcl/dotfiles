@@ -16,9 +16,8 @@ Personal dotfiles repository for a WSL Ubuntu development environment, primarily
   - `wezterm/wezterm.lua` — Entry point
   - `wezterm/config/` — Appearance, keybindings, init
   - `wezterm/utils/` — Platform detection utilities
-- `claude/` — Claude Code configuration (rules, skills, settings)
-  - `claude/rules/` — Behavioral rules loaded as global instructions
-  - `claude/skills/` — Custom skills (commit-code, create-draft-pr, address-pr-comments, coding-task, jira-cli)
+- `claude/` — Claude Code configuration (skills, settings)
+  - `claude/skills/` — Custom skills (commit-code, create-draft-pr, address-pr-comments, python-coding, jira-cli, worktree-testing)
 - `zsh/` — Zsh config (`.zshrc`) and helper scripts in `zsh/bin/`
 - `fish/` — Fish shell config
 - `tmux/` — Tmux configuration
@@ -30,7 +29,6 @@ Personal dotfiles repository for a WSL Ubuntu development environment, primarily
 - **Neovim plugins**: Each plugin gets its own file in `nvim/lua/iainm/lazy/`, returning a Lazy plugin spec table. Follow the existing pattern when adding new plugins.
 - **Wezterm config**: Modular structure — appearance in `config/appearence.lua`, keybindings in `config/keys.lua`. Platform-specific logic via `utils/platform.lua`.
 - **Claude skills**: Each skill lives in `claude/skills/<name>/SKILL.md`. Skills define reusable workflows for Claude Code.
-- **Claude rules**: Markdown files in `claude/rules/` are loaded as global instructions across all projects.
 
 ## Working with This Repository
 

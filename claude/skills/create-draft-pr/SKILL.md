@@ -53,7 +53,3 @@ Return the URL.
 
 If the current branch is not published, push with `-u`.
 
-## Signing
-
-Don't use any form of signing at the end of a draft pull request or commits
-so don't add `-agent`, `-Claude`, or `written with...`.
