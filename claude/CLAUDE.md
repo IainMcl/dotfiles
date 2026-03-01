@@ -21,6 +21,10 @@ Define callers before callees — top-down reading flow.
 
 When working in a particular language, look for a matching skill (e.g. `python-coding` for Python).
 
+## Obsidian vault
+
+Notes are at `/home/iainmclaughlan/notes/hitchhiker/`. Prefer reading notes directly with `Read` or `Grep` over using the Obsidian MCP server — direct reads are cheaper. Only use the MCP when you need fuzzy search across the vault and don't know which file to look in.
+
 ## Suggest rule/skill improvements
 
 If a workflow or command fails, suggest adding or updating a skill to handle it correctly next time.

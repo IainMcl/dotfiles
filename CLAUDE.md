@@ -17,7 +17,7 @@ Personal dotfiles repository for a WSL Ubuntu development environment, primarily
   - `wezterm/config/` — Appearance, keybindings, init
   - `wezterm/utils/` — Platform detection utilities
 - `claude/` — Claude Code configuration (skills, settings)
-  - `claude/skills/` — Custom skills (commit-code, create-draft-pr, address-pr-comments, python-coding, jira-cli, worktree-testing)
+  - `claude/skills/` — Custom skills (commit-code, create-draft-pr, address-pr-comments, code-review, review-pr, research, python-coding, jira-cli, worktree-testing)
 - `zsh/` — Zsh config (`.zshrc`) and helper scripts in `zsh/bin/`
 - `fish/` — Fish shell config
 - `tmux/` — Tmux configuration
