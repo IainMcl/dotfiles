@@ -72,6 +72,18 @@ tags:
 Fill in the body sections using the current conversation context. Write in the
 user's voice — concise, factual, no fluff.
 
+## Line width
+
+Wrap prose and comments at **80 characters**. This can stretch to **120** when
+needed for readability (e.g. long inline code, table rows). URLs and code
+fences may exceed 120 — never break a URL across lines.
+
+## Formatting style
+
+Use proper markdown structure — headings, prose, lists, and tables — for
+explanations. Only put actual code or commands inside fenced code blocks.
+Do **not** use code-comment blocks as a substitute for markdown prose.
+
 ## Create the file
 
 Write the completed note to `$VAULTS_PATH/inbox/{filename}`.

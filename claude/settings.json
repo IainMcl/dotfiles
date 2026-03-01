@@ -6,5 +6,103 @@
   "enabledPlugins": {
     "lua-lsp@claude-plugins-official": true
   },
-  "effortLevel": "medium"
+  "effortLevel": "medium",
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(gh:*)",
+      "Bash(acli:*)",
+      "Bash(terraform:*)",
+      "Bash(docker compose:*)",
+      "Bash(just:*)",
+      "Bash(pre-commit run:*)",
+      "Bash(uv:*)",
+      "Bash(pytest:*)",
+      "Bash(ruff:*)",
+      "Bash(mypy:*)",
+      "Bash(alembic:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(node:*)",
+      "Bash(pnpm:*)",
+      "Bash(ls:*)",
+      "Bash(tree:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(wc:*)",
+      "Bash(bash:*)",
+      "Bash(source:*)",
+      "Bash(echo:*)",
+      "Bash(which:*)",
+      "Bash(command:*)",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(chmod:*)",
+      "Bash(sort:*)",
+      "Bash(sed:*)",
+      "Bash(awk:*)",
+      "Bash(diff:*)",
+      "Bash(uniq:*)",
+      "Bash(pip:*)",
+      "Bash(pip3:*)",
+      "Bash(pipx:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(go:*)",
+      "WebSearch",
+      "mcp__sentry__search_issues",
+      "mcp__sentry__get_issue_details"
+    ]
+  },
+  "mcpServers": {
+    "obsidian": {
+      "command": "npx",
+      "args": ["-y", "mcp-obsidian", "/home/iainmclaughlan/notes/hitchhiker"]
+    },
+    "sentry": {
+      "type": "http",
+      "url": "https://mcp.sentry.dev/mcp"
+    },
+    "notion": {
+      "type": "http",
+      "url": "https://mcp.notion.com/mcp"
+    },
+    "figma-remote-mcp": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp"
+    },
+    "slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp"
+    },
+    "Ref": {
+      "type": "http",
+      "url": "https://api.ref.tools/mcp",
+      "headers": {
+        "x-ref-api-key": "ref-78b50908a35e6a1947e0"
+      }
+    },
+    "snowflake": {
+      "command": "uvx",
+      "args": [
+        "snowflake-labs-mcp",
+        "--service-config-file",
+        "/home/iainmclaughlan/.claude/snowflake-mcp-config.yaml"
+      ],
+      "env": {
+        "SNOWFLAKE_ACCOUNT": "",
+        "SNOWFLAKE_USER": "",
+        "SNOWFLAKE_PASSWORD": "",
+        "SNOWFLAKE_ROLE": "",
+        "SNOWFLAKE_WAREHOUSE": ""
+      }
+    }
+  }
 }
