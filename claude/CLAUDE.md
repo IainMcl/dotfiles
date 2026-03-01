@@ -47,6 +47,7 @@ When writing functions that depend on each other, keep the ordering intuitive:
 ## Committing and Pull request descriptions
 
 Do not sign off commits and pull request descriptions saying "Generated with Claude Code" or similar.
+This includes `Co-Authored-By` lines — never add them to commits.
 When replying to comments on pull requests only sign off with `-Claude`.
 
 ## Improving AI agents
