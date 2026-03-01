@@ -25,6 +25,12 @@ When working in a particular language, look for a matching skill (e.g. `python-c
 
 Notes are at `/home/iainmclaughlan/notes/hitchhiker/`. Prefer reading notes directly with `Read` or `Grep` over using the Obsidian MCP server — direct reads are cheaper. Only use the MCP when you need fuzzy search across the vault and don't know which file to look in.
 
+## Git commit format
+
+**Never** use `$()` command substitution or HEREDOC for commit messages — this triggers a security confirmation prompt. Instead:
+1. Use the `Write` tool to write the commit message to `/tmp/commit_msg.txt`
+2. Run `git commit -F /tmp/commit_msg.txt`
+
 ## Suggest rule/skill improvements
 
 If a workflow or command fails, suggest adding or updating a skill to handle it correctly next time.

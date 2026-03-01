@@ -19,6 +19,15 @@ Pre-commit hooks will run and may modify files. If hooks modify files:
 <Description>
 ```
 
+### How to commit
+
+Write the message to a temp file to avoid command substitution prompts:
+
+1. Use the `Write` tool to write the commit message to `/tmp/commit_msg.txt`
+2. Then run: `git commit -F /tmp/commit_msg.txt`
+
+**Never** use `git commit -m "$(cat <<'EOF' ... EOF)"` — the `$()` substitution triggers a security confirmation prompt.
+
 ### Rules
 
 **Title (first line):**
@@ -39,7 +48,7 @@ Pre-commit hooks will run and may modify files. If hooks modify files:
 When changes have been committed ask if we are ready to push. If we are ready to push, push using:
 
 ```bash
-just push
+git push origin <branch-name>
 ```
 
 If pushing as part of a rebase use
