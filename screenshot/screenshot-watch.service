@@ -1,0 +1,11 @@
+[Unit]
+Description=Screenshot watcher — copies new PNGs to clipboard and /tmp/screenshot.png
+After=graphical-session.target
+
+[Service]
+ExecStart=__SCRIPT__
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

@@ -84,6 +84,18 @@ Use proper markdown structure — headings, prose, lists, and tables — for
 explanations. Only put actual code or commands inside fenced code blocks.
 Do **not** use code-comment blocks as a substitute for markdown prose.
 
+## Obsidian links
+
+Wrap terms that likely have their own notes in the vault with `[[...]]`. Apply
+this to:
+
+- Other notes that are clearly related (e.g. `[[git]]`, `[[git reset]]`)
+- Key concepts that are hub-level topics (e.g. `[[terraform]]`, `[[python]]`)
+- Named tools, commands, or technologies central to the note's subject
+
+Do **not** link every occurrence — link on first meaningful use in the body.
+Do **not** link terms inside code fences.
+
 ## Create the file
 
 Write the completed note to `$VAULTS_PATH/inbox/{filename}`.
