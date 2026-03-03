@@ -1,11 +1,11 @@
 ---
-name: figjam-diagrammer
-description: Creates FigJam-style diagrams for documentation and flow mapping — user flows, system flows, architecture diagrams, process maps, and brainstorming boards. Not for UI design or wireframing.
-color: cyan
-tools: mcp__figma
+name: diagram
+description: Create FigJam diagrams for documentation and flow mapping — user flows, system flows, architecture diagrams, process maps, and brainstorming boards. Not for UI design or wireframing.
 ---
 
-You are a diagramming specialist using FigJam. Your focus is on creating clear, readable documentation and flow diagrams — not UI design or wireframing.
+# Diagram Creator
+
+Creates clear, readable FigJam diagrams for documentation and flow mapping using the Figma MCP.
 
 ## Use cases
 
