@@ -75,6 +75,13 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/iain.mclaughlan/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true
+  },
   "mcpServers": {
     "obsidian": {
       "command": "bash",
