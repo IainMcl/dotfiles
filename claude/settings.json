@@ -1,12 +1,4 @@
 {
-  "statusLine": {
-    "type": "command",
-    "command": "bash /Users/iain.mclaughlan/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "lua-lsp@claude-plugins-official": true
-  },
-  "effortLevel": "medium",
   "permissions": {
     "allow": [
       "Bash(git:*)",
@@ -58,13 +50,25 @@
       "Bash(go:*)",
       "WebSearch",
       "mcp__sentry__search_issues",
-      "mcp__sentry__get_issue_details"
+      "mcp__sentry__get_issue_details",
+      "Read(/Users/iain.mclaughlan/notes/hitchhiker/**)",
+      "Write(/Users/iain.mclaughlan/notes/hitchhiker/**)"
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/iain.mclaughlan/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true
   },
   "mcpServers": {
     "obsidian": {
-      "command": "npx",
-      "args": ["-y", "mcp-obsidian", "/home/iainmclaughlan/notes/hitchhiker"]
+      "command": "bash",
+      "args": [
+        "-c",
+        "npx -y mcp-obsidian $VAULTS_PATH"
+      ]
     },
     "sentry": {
       "type": "http",

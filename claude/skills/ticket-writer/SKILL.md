@@ -1,11 +1,11 @@
 ---
 name: ticket-writer
-description: Write and create Jira tickets using acli. Use when creating task or bug tickets in the TK-APP project.
+description: Write and create Jira tickets using the Atlassian MCP. Use when creating task or bug tickets in the TK-APP project.
 ---
 
 # Ticket Writer
 
-Creates well-structured, actionable Jira tickets in the TK-APP project using the Atlassian CLI (`acli`).
+Creates well-structured, actionable Jira tickets in the TK-APP project using the Atlassian MCP.
 
 ## Ticket types
 
@@ -42,8 +42,8 @@ Use for defects and unexpected behaviour.
 ## Jira defaults
 
 - **Project**: `TK-APP (APP)`
-- **Component**: `Vat & Invoicing`
-- **Epic/Parent**: check for a relevant open epic before creating — search with `acli jira issue list --project TK-APP --type Epic` and link if appropriate
+- **Component**: `Vat & Invoicing` — component ID `11111`
+- **Epic/Parent**: check for a relevant open epic before creating — search with `mcp__atlassian__searchJiraIssuesUsingJql` and link if appropriate
 
 ## Process
 
@@ -51,24 +51,22 @@ Use for defects and unexpected behaviour.
 2. **Always ask for priority** — do not infer priority. Ask the user: Highest / High / Medium / Low / Lowest.
 3. **Check for a relevant epic** — search for open epics in TK-APP and ask the user if one applies.
 4. **Draft the ticket** — show the full ticket draft to the user for review before creating.
-5. **Create with acli** — once approved, create the ticket using acli.
+5. **Create with MCP** — once approved, create using `mcp__atlassian__createJiraIssue`, then link the epic via `mcp__atlassian__editJiraIssue`.
 
-## acli commands
+## MCP approach (preferred)
 
-```bash
-# Create a ticket — write body to file first, never use inline command substitution
-echo "ticket body" > /tmp/ticket_body.md
-acli jira issue create \
-  --project TK-APP \
-  --type Task \
-  --summary "Ticket title" \
-  --description "$(cat /tmp/ticket_body.md)" \
-  --priority Medium \
-  --component "Vat & Invoicing" \
-  --parent EPIC-123
+Use `mcp__atlassian__createJiraIssue` with these parameters:
+- `cloudId`: `785f3332-ecb2-49ff-9b5b-6e4829a689b2`
+- `projectKey`: `APP`
+- `issueTypeName`: `Task` (or `Bug`)
+- `description`: Markdown string
+- `additional_fields`: `{"components": [{"id": "11111"}]}`
 
-# List open epics
-acli jira issue list --project TK-APP --type Epic --status "In Progress"
+**Important — component must use ID, not name.** Using `{"name": "Vat & Invoicing"}` causes acli and the MCP to attempt creating a new component, which fails due to permissions. Always use `{"id": "11111"}`.
+
+**Important — epic link cannot be set on creation.** The `customfield_10014` field is not on the create screen. After creating the ticket, set the epic link via:
+```
+mcp__atlassian__editJiraIssue(issueIdOrKey=NEW-KEY, fields={"customfield_10008": "APP-XXXXX"})
 ```
 
 ## Constraints

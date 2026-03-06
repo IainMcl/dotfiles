@@ -23,7 +23,7 @@ When working in a particular language, look for a matching skill (e.g. `python-c
 
 ## Obsidian vault
 
-Notes are at `/home/iainmclaughlan/notes/hitchhiker/`. Prefer reading notes directly with `Read` or `Grep` over using the Obsidian MCP server — direct reads are cheaper. Only use the MCP when you need fuzzy search across the vault and don't know which file to look in.
+Notes are at `$VAULTS_PATH` (set per machine in shell profile). Prefer reading notes directly with `Read` or `Grep` over using the Obsidian MCP server — direct reads are cheaper. Only use the MCP when you need fuzzy search across the vault and don't know which file to look in.
 
 ## Git commit format
 
