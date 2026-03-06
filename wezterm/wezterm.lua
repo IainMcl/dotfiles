@@ -158,21 +158,38 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
 	local title = tab_title(tab)
 
-	-- ensure that the titles fit in the available space,
-	-- and that we have room for the edges.
+	-- Check if any pane in this inactive tab has unseen output (e.g. agent finished)
+	local has_unseen = false
+	if not tab.is_active then
+		for _, pane in ipairs(tab.panes) do
+			if pane.has_unseen_output then
+				has_unseen = true
+				break
+			end
+		end
+	end
+
 	title = wezterm.truncate_right(title, max_width - 2)
 
-	return {
+	local result = {
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
 		{ Text = SOLID_LEFT_ARROW },
 		{ Background = { Color = background } },
-		{ Foreground = { Color = foreground } },
-		{ Text = title },
-		{ Background = { Color = edge_background } },
-		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_RIGHT_ARROW },
 	}
+
+	if has_unseen then
+		table.insert(result, { Foreground = { Color = "#8caaee" } })
+		table.insert(result, { Text = "● " })
+	end
+
+	table.insert(result, { Foreground = { Color = foreground } })
+	table.insert(result, { Text = title })
+	table.insert(result, { Background = { Color = edge_background } })
+	table.insert(result, { Foreground = { Color = edge_foreground } })
+	table.insert(result, { Text = SOLID_RIGHT_ARROW })
+
+	return result
 end)
 -------------------
 --- Mouse bindings
