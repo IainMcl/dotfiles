@@ -40,6 +40,28 @@ run, tests pass, linting run. **Only** include relevant things that the
 author or a reviewer will do to ensure the implementation work. Testing and
 linting will be handled by CI checks.
 
+## Frontend change screenshots
+
+After reviewing the diff, evaluate whether the changes include **frontend/UI
+modifications** (e.g. component changes, styling updates, layout shifts, new
+pages or modals). If so, decide whether the PR would benefit from a screenshot
+or screen recording to help reviewers understand the visual impact.
+
+If a screenshot or recording would add value:
+
+1. Use the **Playwright MCP** tools to launch the app and navigate to the
+   affected page(s).
+2. Capture a screenshot (or screen recording for interactive/animated changes).
+3. Upload the image/video to the PR body or as a comment using the `gh` CLI:
+   ```bash
+   # Upload image and get markdown link — gh will return the URL
+   gh pr comment {pr_number} --body "## Screenshot\n![change](image_url)"
+   ```
+   Or embed directly in the PR body when creating the PR.
+
+Skip this step if the changes are purely backend, configuration, or
+non-visual.
+
 ## Create draft PR
 Create a draft PR using the command:
 
