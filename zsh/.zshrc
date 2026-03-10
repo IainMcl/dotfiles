@@ -305,3 +305,6 @@ fi
 alias tkl="tk login && export AWS_PROFILE=tooling"
 
 . "$HOME/.local/bin/env"
+
+# WezTerm shell integration - enables CWD tracking (OSC 7) for tab titles
+[[ -n "$WEZTERM_PANE" && -f /Applications/WezTerm.app/Contents/Resources/wezterm.sh ]] && source /Applications/WezTerm.app/Contents/Resources/wezterm.sh

@@ -96,6 +96,7 @@ config.window_background_image_hsb = {
 -- config.win32_system_backdrop = "Acrylic"
 config.hide_mouse_cursor_when_typing = true
 config.hide_tab_bar_if_only_one_tab = true
+config.tab_max_width = 32
 
 -- config.window_background_image_blur = 10
 
@@ -124,20 +125,21 @@ function tab_title(tab_info)
 		return title
 	end
 
-	local pane_cwd = tab_info.active_pane.cwd
-	if pane_cwd and #pane_cwd > 0 then
-		-- The CWD is a URL; we want to extract the path component
-		local uri = wezterm.url.parse(pane_cwd)
-		-- and then we want the basename of the path
-		-- uri.path will be `/path/to/basename`
-		local basename = uri.path:match("([^/]+)$")
-		if basename and #basename > 0 then
-			return basename
+	-- Use the live pane API so the CWD persists even when a program (vim, claude, etc.) is running
+	local pane = wezterm.mux.get_pane(tab_info.active_pane.pane_id)
+	if pane then
+		local cwd = pane:get_current_working_dir()
+		if cwd then
+			local path = cwd.file_path or cwd.path
+			if path then
+				local basename = path:match("([^/]+)/?$")
+				if basename and #basename > 0 then
+					return basename
+				end
+			end
 		end
 	end
 
-	-- Otherwise, use the title from the active pane
-	-- in that tab
 	return tab_info.active_pane.title
 end
 

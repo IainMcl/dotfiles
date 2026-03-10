@@ -51,7 +51,8 @@ frontmatter. These are how Obsidian organises and cross-links notes.
 
 - **`hub`** — determines which section the note is sorted into. Each template
   has a default hub (e.g. `dailies`, `hills`, `travelperk`, `notes`). For code
-  templates the hub is the programming language name.
+  templates the hub is the programming language name. **Never** wrap the hub
+  value in quotes — write `hub: ai` not `hub: "ai"`.
 - **`aliases`** — alternative names used for linking to the note with `[[...]]`.
   Always include at least the note title as an alias. For daily notes also add
   the human-readable date and ISO date string.

@@ -55,13 +55,6 @@
       "Write(/Users/iain.mclaughlan/notes/hitchhiker/**)"
     ]
   },
-  "statusLine": {
-    "type": "command",
-    "command": "bash /Users/iain.mclaughlan/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "lua-lsp@claude-plugins-official": true
-  },
   "hooks": {
     "Stop": [
       {
@@ -81,6 +74,10 @@
   },
   "enabledPlugins": {
     "lua-lsp@claude-plugins-official": true
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true
   },
   "mcpServers": {
     "obsidian": {
@@ -128,5 +125,6 @@
         "SNOWFLAKE_WAREHOUSE": ""
       }
     }
-  }
+  },
+  "skipDangerousModePermissionPrompt": true
 }
