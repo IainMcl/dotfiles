@@ -52,12 +52,14 @@ If a screenshot or recording would add value:
 1. Use the **Playwright MCP** tools to launch the app and navigate to the
    affected page(s).
 2. Capture a screenshot (or screen recording for interactive/animated changes).
-3. Upload the image/video to the PR body or as a comment using the `gh` CLI:
-   ```bash
-   # Upload image and get markdown link — gh will return the URL
-   gh pr comment {pr_number} --body "## Screenshot\n![change](image_url)"
-   ```
-   Or embed directly in the PR body when creating the PR.
+3. The `gh` CLI **cannot** upload images to PRs. Instead:
+   - Save the screenshot to `docs/screenshots/<ticket>-<description>.png`
+   - Commit it to the branch and push
+   - Reference it in the PR body using a blob URL:
+     ```markdown
+     ![Description](https://github.com/OWNER/REPO/blob/BRANCH/docs/screenshots/FILE.png?raw=true)
+     ```
+   - This works for private repos since the viewer is authenticated on GitHub.
 
 Skip this step if the changes are purely backend, configuration, or
 non-visual.
