@@ -65,6 +65,9 @@ Skip this step if the changes are purely backend, configuration, or
 non-visual.
 
 ## Create draft PR
+
+> **Sandbox note:** All `gh` commands require `dangerouslyDisableSandbox: true` — the sandbox breaks TLS verification for GitHub API calls. Always set this flag for every `gh` invocation.
+
 Create a draft PR using the command:
 
 ```bash

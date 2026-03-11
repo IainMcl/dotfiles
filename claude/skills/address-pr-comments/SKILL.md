@@ -7,6 +7,8 @@ description: Fetch and respond to GitHub PR comments. Use when asked to get PR f
 
 ## Fetching Comments
 
+> **Sandbox note:** All `gh` commands require `dangerouslyDisableSandbox: true` — the sandbox breaks TLS verification for GitHub API calls. Always set this flag for every `gh` invocation.
+
 ### Get review comments (inline code comments)
 
 ```bash

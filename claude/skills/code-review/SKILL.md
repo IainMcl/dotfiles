@@ -17,6 +17,8 @@ and style. Supports two modes: GitHub PR review and local diff review.
 
 ## PR Review Mode
 
+> **Sandbox note:** All `gh` commands require `dangerouslyDisableSandbox: true` — the sandbox breaks TLS verification for GitHub API calls. Always set this flag for every `gh` invocation.
+
 ### Fetch the diff
 
 ```bash

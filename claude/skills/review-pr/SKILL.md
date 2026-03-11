@@ -12,6 +12,8 @@ the user through suggestions interactively. **Never post comments on the PR.**
 
 Extract owner, repo, and PR number from the provided link.
 
+> **Note:** `gh` commands that hit GitHub's API require `dangerouslyDisableSandbox: true` due to TLS certificate verification in the sandbox. Always set this flag when running `gh` commands.
+
 ```bash
 gh pr view {PR_NUMBER} --repo {OWNER}/{REPO} --json title,body,baseRefName,headRefName,labels
 gh pr diff {PR_NUMBER} --repo {OWNER}/{REPO}
@@ -20,7 +22,7 @@ gh pr diff {PR_NUMBER} --repo {OWNER}/{REPO}
 ## 2. Fetch existing review comments
 
 ```bash
-gh api repos/{OWNER}/{REPO}/pulls/{PR_NUMBER}/comments
+gh api repos/{OWNER}/{REPO}/pulls/{PR_NUMBER}/comments --jq '[.[] | select(.user.login | test("bot"; "i") | not) | {user: .user.login, path: .path, line: .line, body: .body}]'
 gh pr view {PR_NUMBER} --repo {OWNER}/{REPO} --json reviews,comments
 ```
 
