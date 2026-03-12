@@ -1,0 +1,89 @@
+{
+  "skill_name": "project-update",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Write a project update for the dotfiles project. Git is the only source — check what's been merged this past week. Posting to #platform-updates, audience is the PM lead.",
+      "expected_output": "A short Slack-formatted status update using emoji section headers (✅ Done, 🔄 In Progress, 👀 Up Next), Slack bold markdown (*bold*), no ## headers, under 300 words. Should reflect real git activity.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Output uses Slack-style bold (*word*) rather than markdown ## headers",
+          "type": "format"
+        },
+        {
+          "text": "Output contains at least one emoji section header (✅, 🔄, or 👀)",
+          "type": "format"
+        },
+        {
+          "text": "Output references specific git activity (real commit, feature, or fix — not generic placeholder text)",
+          "type": "content"
+        },
+        {
+          "text": "Output is under 300 words",
+          "type": "length"
+        },
+        {
+          "text": "Output does not begin with meta-commentary like 'I'll write' or 'Here is your update'",
+          "type": "format"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Write me a project update",
+      "expected_output": "Claude should ask clarifying questions — project name, sources, time period, audience — all in one message. Should NOT generate a full update before gathering context.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Response contains at least one question mark — Claude asks for clarification rather than generating immediately",
+          "type": "behaviour"
+        },
+        {
+          "text": "Questions ask about project name or project context",
+          "type": "content"
+        },
+        {
+          "text": "Questions ask about which sources to use (git, Slack, Jira, Notion, docs)",
+          "type": "content"
+        },
+        {
+          "text": "Questions ask about the time period to cover",
+          "type": "content"
+        },
+        {
+          "text": "All clarifying questions are grouped into a single message (not spread across multiple turns)",
+          "type": "format"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Can you write a project status update for the auth migration project? Sources: Slack channel #auth-migration and Jira project AUTH. I also want to include a screenshot — there's one at docs/screenshots/login-flow.png. Audience is the PM Sarah, going to #product-team. Cover the last 2 weeks.",
+      "expected_output": "A Slack-formatted update referencing Slack and Jira data, with an image section for the screenshot (handled gracefully if missing), using emoji section headers.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Output includes a screenshot or image section referencing the provided file or noting it for attachment",
+          "type": "content"
+        },
+        {
+          "text": "Output mentions Slack and/or Jira as sources of information",
+          "type": "content"
+        },
+        {
+          "text": "Output uses Slack emoji section format (✅, 🔄, 👀 or similar)",
+          "type": "format"
+        },
+        {
+          "text": "Missing screenshot file is handled gracefully — noted for manual attachment rather than causing an error or being silently dropped",
+          "type": "behaviour"
+        },
+        {
+          "text": "Output is addressed to the correct audience context (PM Sarah, #product-team)",
+          "type": "content"
+        }
+      ]
+    }
+  ]
+}
