@@ -55,6 +55,7 @@
       "Write(/Users/iain.mclaughlan/notes/hitchhiker/**)"
     ]
   },
+  "model": "sonnet",
   "hooks": {
     "Stop": [
       {
@@ -79,6 +80,7 @@
     "enabled": true,
     "autoAllowBashIfSandboxed": true
   },
+  "skipDangerousModePermissionPrompt": true,
   "mcpServers": {
     "obsidian": {
       "command": "bash",
@@ -125,6 +127,5 @@
         "SNOWFLAKE_WAREHOUSE": ""
       }
     }
-  },
-  "skipDangerousModePermissionPrompt": true
+  }
 }
