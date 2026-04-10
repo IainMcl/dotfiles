@@ -127,6 +127,7 @@ bindkey '\e[1;5C' forward-word
 # #########
 
 # MISC
+alias cld="claude --dangerously-skip-permissions"
 alias vim="nvim"
 alias vi="nvim"
 alias tm="tmux"
