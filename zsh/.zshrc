@@ -133,7 +133,6 @@ alias vi="nvim"
 alias tm="tmux"
 alias cls="clear"
 alias lg="lazygit"
-alias bat="batcat"
 
 # Ls
 alias ls="eza --icons=always"
@@ -309,3 +308,12 @@ alias tkl="tk login && export AWS_PROFILE=tooling"
 
 # WezTerm shell integration - enables CWD tracking (OSC 7) for tab titles
 [[ -n "$WEZTERM_PANE" && -f /Applications/WezTerm.app/Contents/Resources/wezterm.sh ]] && source /Applications/WezTerm.app/Contents/Resources/wezterm.sh
+
+# bun completions
+[ -s "/Users/iainmclaughlan/.bun/_bun" ] && source "/Users/iainmclaughlan/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
