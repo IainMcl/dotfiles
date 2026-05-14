@@ -9,8 +9,6 @@
 # TODO: eza:
 # cargo install eza
 
-zmodload zsh/zprof
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -331,5 +329,3 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-zprof
