@@ -1,0 +1,38 @@
+{
+  "expectations": [
+    {
+      "text": "Output includes a screenshot or image section referencing the provided file or noting it for attachment",
+      "passed": true,
+      "evidence": "Has '## Screenshot — New Login Flow' section explicitly noting the file path and instructing the user to attach it."
+    },
+    {
+      "text": "Output mentions Slack and/or Jira as sources of information",
+      "passed": true,
+      "evidence": "Has a full '## Key Discussions (from #auth-migration)' section and references AUTH-84 through AUTH-99 Jira tickets."
+    },
+    {
+      "text": "Output uses Slack emoji section format (✅, 🔄, 👀 or similar)",
+      "passed": false,
+      "evidence": "Uses ## markdown headers throughout (## Summary, ## Progress, ## Key Discussions, ## Metrics, ## Risks & Mitigations, ## Next 2 Weeks, ## Asks from PM). This is a comprehensive document, not a Slack message. Would render as raw markdown if pasted into Slack."
+    },
+    {
+      "text": "Missing screenshot file is handled gracefully — noted for manual attachment rather than causing an error or being silently dropped",
+      "passed": true,
+      "evidence": "'The login-flow screenshot (docs/screenshots/login-flow.png) was not found. Please attach the latest screenshot from the design handoff or a staging environment recording before posting.'"
+    },
+    {
+      "text": "Output is addressed to the correct audience context (PM Sarah, #product-team)",
+      "passed": true,
+      "evidence": "Header explicitly states 'To: Sarah (PM)' and 'Channel: #product-team'."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  },
+  "timing": {
+    "total_duration_seconds": 63.4
+  }
+}

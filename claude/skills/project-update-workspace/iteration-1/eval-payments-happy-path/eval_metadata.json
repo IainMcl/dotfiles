@@ -1,0 +1,27 @@
+{
+  "eval_id": 0,
+  "eval_name": "payments-happy-path",
+  "prompt": "Write a project update for the dotfiles project. Git is the only source — check what's been merged this past week. Posting to #platform-updates, audience is the PM lead.",
+  "assertions": [
+    {
+      "text": "Output uses Slack-style bold (*word*) rather than markdown ## headers",
+      "type": "format"
+    },
+    {
+      "text": "Output contains at least one emoji section header (✅, 🔄, or 👀)",
+      "type": "format"
+    },
+    {
+      "text": "Output references specific git activity (real commit, feature, or fix — not generic placeholder text)",
+      "type": "content"
+    },
+    {
+      "text": "Output is under 300 words",
+      "type": "length"
+    },
+    {
+      "text": "Output does not begin with meta-commentary like 'I'll write' or 'Here is your update'",
+      "type": "format"
+    }
+  ]
+}

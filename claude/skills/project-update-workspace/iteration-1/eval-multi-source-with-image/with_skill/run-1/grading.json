@@ -1,0 +1,38 @@
+{
+  "expectations": [
+    {
+      "text": "Output includes a screenshot or image section referencing the provided file or noting it for attachment",
+      "passed": true,
+      "evidence": "Has '📸 *Screenshot:* New login flow UI...' section at the bottom with the file path docs/screenshots/login-flow.png."
+    },
+    {
+      "text": "Output mentions Slack and/or Jira as sources of information",
+      "passed": true,
+      "evidence": "Data note at top explicitly states: 'The Slack channel #auth-migration was not found' and 'the Jira project AUTH returned no issues'."
+    },
+    {
+      "text": "Output uses Slack emoji section format (✅, 🔄, 👀 or similar)",
+      "passed": true,
+      "evidence": "Uses ✅ *Done*, 🔄 *In Progress*, 🚧 *Blockers*, 👀 *Up Next* with Slack single-asterisk bold."
+    },
+    {
+      "text": "Missing screenshot file is handled gracefully — noted for manual attachment rather than causing an error or being silently dropped",
+      "passed": true,
+      "evidence": "'docs/screenshots/login-flow.png — file not found on disk; attach manually when posting to #product-team.'"
+    },
+    {
+      "text": "Output is addressed to the correct audience context (PM Sarah, #product-team)",
+      "passed": true,
+      "evidence": "Screenshot note mentions #product-team. Data note references the channel context. Update is scoped for the right audience."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "total_duration_seconds": 56.6
+  }
+}

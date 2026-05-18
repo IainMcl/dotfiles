@@ -6,7 +6,11 @@ description: Read a GitHub PR and walk through review suggestions interactively.
 # Review PR
 
 Read a GitHub PR, gather existing reviewer comments, analyse the diff, and walk
-the user through suggestions interactively. **Never post comments on the PR.**
+the user through suggestions interactively.
+
+> **Never post comments, approve, or request changes on the PR.** All output
+> stays in this conversation. If the user agrees with a suggestion, draft the
+> comment text for them to post themselves.
 
 ## 1. Fetch PR context
 

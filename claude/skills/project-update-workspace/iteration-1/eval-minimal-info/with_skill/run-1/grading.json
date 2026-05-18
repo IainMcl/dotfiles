@@ -1,0 +1,38 @@
+{
+  "expectations": [
+    {
+      "text": "Response contains at least one question mark — Claude asks for clarification rather than generating immediately",
+      "passed": true,
+      "evidence": "Five numbered questions all ending with question marks, asked before any update is generated."
+    },
+    {
+      "text": "Questions ask about project name or project context",
+      "passed": true,
+      "evidence": "Question 1: 'Project name — what's the project called?'"
+    },
+    {
+      "text": "Questions ask about which sources to use (git, Slack, Jira, Notion, docs)",
+      "passed": true,
+      "evidence": "Question 4 explicitly lists all five source types: Git repo, Slack, Jira, Notion, local docs/ folder."
+    },
+    {
+      "text": "Questions ask about the time period to cover",
+      "passed": true,
+      "evidence": "Question 3: 'Time period — what window should it cover? (e.g. \"this week\", \"last sprint\", \"since last Monday\")'"
+    },
+    {
+      "text": "All clarifying questions are grouped into a single message (not spread across multiple turns)",
+      "passed": true,
+      "evidence": "All 5 questions appear in one block under 'Claude's initial questions (Step 1)', introduced with 'I'll ask everything at once'."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "total_duration_seconds": 38.2
+  }
+}

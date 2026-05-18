@@ -1,0 +1,38 @@
+{
+  "expectations": [
+    {
+      "text": "Output uses Slack-style bold (*word*) rather than markdown ## headers",
+      "passed": false,
+      "evidence": "Uses **double-asterisk** bold throughout (e.g. **#platform-updates**, **Claude Code improvements**). Double asterisks don't render as bold in Slack — they show as literal asterisks or behave inconsistently."
+    },
+    {
+      "text": "Output contains at least one emoji section header (✅, 🔄, or 👀)",
+      "passed": false,
+      "evidence": "Uses text section headers like **Claude Code improvements**, **WezTerm terminal**, **Minor**. No emoji headers present."
+    },
+    {
+      "text": "Output references specific git activity (real commit, feature, or fix — not generic placeholder text)",
+      "passed": true,
+      "evidence": "References Playwright screenshots for PRs, sandbox TLS fix, vault read permissions, OSC 9 notification, WezTerm CWD fix, Obsidian note fix — real specifics."
+    },
+    {
+      "text": "Output is under 300 words",
+      "passed": true,
+      "evidence": "Approximately 200 words."
+    },
+    {
+      "text": "Output does not begin with meta-commentary like 'I'll write' or 'Here is your update'",
+      "passed": false,
+      "evidence": "Second line reads 'Here's what shipped in the personal dev tooling this week.' — meta-commentary before the content begins."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "pass_rate": 0.4
+  },
+  "timing": {
+    "total_duration_seconds": 30.7
+  }
+}

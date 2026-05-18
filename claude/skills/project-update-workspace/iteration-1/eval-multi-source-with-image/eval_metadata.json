@@ -1,0 +1,27 @@
+{
+  "eval_id": 2,
+  "eval_name": "multi-source-with-image",
+  "prompt": "Can you write a project status update for the auth migration project? Sources: Slack channel #auth-migration and Jira project AUTH. I also want to include a screenshot — there's one at docs/screenshots/login-flow.png. Audience is the PM Sarah, going to #product-team. Cover the last 2 weeks.",
+  "assertions": [
+    {
+      "text": "Output includes a screenshot or image section referencing the provided file or noting it for attachment",
+      "type": "content"
+    },
+    {
+      "text": "Output mentions Slack and/or Jira as sources of information",
+      "type": "content"
+    },
+    {
+      "text": "Output uses Slack emoji section format (✅, 🔄, 👀 or similar)",
+      "type": "format"
+    },
+    {
+      "text": "Missing screenshot file is handled gracefully — noted for manual attachment rather than causing an error or being silently dropped",
+      "type": "behaviour"
+    },
+    {
+      "text": "Output is addressed to the correct audience context (PM Sarah, #product-team)",
+      "type": "content"
+    }
+  ]
+}

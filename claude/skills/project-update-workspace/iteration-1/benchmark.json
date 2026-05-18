@@ -1,0 +1,323 @@
+{
+  "metadata": {
+    "skill_name": "project-update",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-03-12T10:12:40Z",
+    "evals_run": [
+      0,
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 38.2,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Response contains at least one question mark \u2014 Claude asks for clarification rather than generating immediately",
+          "passed": true,
+          "evidence": "Five numbered questions all ending with question marks, asked before any update is generated."
+        },
+        {
+          "text": "Questions ask about project name or project context",
+          "passed": true,
+          "evidence": "Question 1: 'Project name \u2014 what's the project called?'"
+        },
+        {
+          "text": "Questions ask about which sources to use (git, Slack, Jira, Notion, docs)",
+          "passed": true,
+          "evidence": "Question 4 explicitly lists all five source types: Git repo, Slack, Jira, Notion, local docs/ folder."
+        },
+        {
+          "text": "Questions ask about the time period to cover",
+          "passed": true,
+          "evidence": "Question 3: 'Time period \u2014 what window should it cover? (e.g. \"this week\", \"last sprint\", \"since last Monday\")'"
+        },
+        {
+          "text": "All clarifying questions are grouped into a single message (not spread across multiple turns)",
+          "passed": true,
+          "evidence": "All 5 questions appear in one block under 'Claude's initial questions (Step 1)', introduced with 'I'll ask everything at once'."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 56.6,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output includes a screenshot or image section referencing the provided file or noting it for attachment",
+          "passed": true,
+          "evidence": "Has '\ud83d\udcf8 *Screenshot:* New login flow UI...' section at the bottom with the file path docs/screenshots/login-flow.png."
+        },
+        {
+          "text": "Output mentions Slack and/or Jira as sources of information",
+          "passed": true,
+          "evidence": "Data note at top explicitly states: 'The Slack channel #auth-migration was not found' and 'the Jira project AUTH returned no issues'."
+        },
+        {
+          "text": "Output uses Slack emoji section format (\u2705, \ud83d\udd04, \ud83d\udc40 or similar)",
+          "passed": true,
+          "evidence": "Uses \u2705 *Done*, \ud83d\udd04 *In Progress*, \ud83d\udea7 *Blockers*, \ud83d\udc40 *Up Next* with Slack single-asterisk bold."
+        },
+        {
+          "text": "Missing screenshot file is handled gracefully \u2014 noted for manual attachment rather than causing an error or being silently dropped",
+          "passed": true,
+          "evidence": "'docs/screenshots/login-flow.png \u2014 file not found on disk; attach manually when posting to #product-team.'"
+        },
+        {
+          "text": "Output is addressed to the correct audience context (PM Sarah, #product-team)",
+          "passed": true,
+          "evidence": "Screenshot note mentions #product-team. Data note references the channel context. Update is scoped for the right audience."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 31.6,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output uses Slack-style bold (*word*) rather than markdown ## headers",
+          "passed": true,
+          "evidence": "Uses *Done*, *In Progress*, *Up Next* with single asterisks. No ## headers present."
+        },
+        {
+          "text": "Output contains at least one emoji section header (\u2705, \ud83d\udd04, or \ud83d\udc40)",
+          "passed": true,
+          "evidence": "All three present: \u2705 *Done*, \ud83d\udd04 *In Progress*, \ud83d\udc40 *Up Next*"
+        },
+        {
+          "text": "Output references specific git activity (real commit, feature, or fix \u2014 not generic placeholder text)",
+          "passed": true,
+          "evidence": "References WezTerm tab indicators, CWD fix, Claude Stop hook, create-draft-pr Playwright update, sandbox config, Obsidian frontmatter fix \u2014 all real commits."
+        },
+        {
+          "text": "Output is under 300 words",
+          "passed": true,
+          "evidence": "Output is approximately 130 words."
+        },
+        {
+          "text": "Output does not begin with meta-commentary like 'I'll write' or 'Here is your update'",
+          "passed": true,
+          "evidence": "Starts directly with '*Dotfiles \u2014 past 7 days*'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 35.9,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Response contains at least one question mark \u2014 Claude asks for clarification rather than generating immediately",
+          "passed": true,
+          "evidence": "Five numbered questions asked before generating the update."
+        },
+        {
+          "text": "Questions ask about project name or project context",
+          "passed": true,
+          "evidence": "Question 1: 'What project? What's the name or description of the project this update is for?'"
+        },
+        {
+          "text": "Questions ask about which sources to use (git, Slack, Jira, Notion, docs)",
+          "passed": false,
+          "evidence": "Questions cover: project name, audience, format (Slack/email/etc.), current status (done/in-progress/blocked), and time period. No question about data sources (git, Jira, Slack, Notion, docs) \u2014 assumes the user will supply status manually."
+        },
+        {
+          "text": "Questions ask about the time period to cover",
+          "passed": true,
+          "evidence": "Question 5: 'Any specific period? (e.g. this week, this sprint, this month)'"
+        },
+        {
+          "text": "All clarifying questions are grouped into a single message (not spread across multiple turns)",
+          "passed": true,
+          "evidence": "All 5 questions in one block under 'Claude's Initial Response'."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 63.4,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output includes a screenshot or image section referencing the provided file or noting it for attachment",
+          "passed": true,
+          "evidence": "Has '## Screenshot \u2014 New Login Flow' section explicitly noting the file path and instructing the user to attach it."
+        },
+        {
+          "text": "Output mentions Slack and/or Jira as sources of information",
+          "passed": true,
+          "evidence": "Has a full '## Key Discussions (from #auth-migration)' section and references AUTH-84 through AUTH-99 Jira tickets."
+        },
+        {
+          "text": "Output uses Slack emoji section format (\u2705, \ud83d\udd04, \ud83d\udc40 or similar)",
+          "passed": false,
+          "evidence": "Uses ## markdown headers throughout (## Summary, ## Progress, ## Key Discussions, ## Metrics, ## Risks & Mitigations, ## Next 2 Weeks, ## Asks from PM). This is a comprehensive document, not a Slack message. Would render as raw markdown if pasted into Slack."
+        },
+        {
+          "text": "Missing screenshot file is handled gracefully \u2014 noted for manual attachment rather than causing an error or being silently dropped",
+          "passed": true,
+          "evidence": "'The login-flow screenshot (docs/screenshots/login-flow.png) was not found. Please attach the latest screenshot from the design handoff or a staging environment recording before posting.'"
+        },
+        {
+          "text": "Output is addressed to the correct audience context (PM Sarah, #product-team)",
+          "passed": true,
+          "evidence": "Header explicitly states 'To: Sarah (PM)' and 'Channel: #product-team'."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 30.7,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output uses Slack-style bold (*word*) rather than markdown ## headers",
+          "passed": false,
+          "evidence": "Uses **double-asterisk** bold throughout (e.g. **#platform-updates**, **Claude Code improvements**). Double asterisks don't render as bold in Slack \u2014 they show as literal asterisks or behave inconsistently."
+        },
+        {
+          "text": "Output contains at least one emoji section header (\u2705, \ud83d\udd04, or \ud83d\udc40)",
+          "passed": false,
+          "evidence": "Uses text section headers like **Claude Code improvements**, **WezTerm terminal**, **Minor**. No emoji headers present."
+        },
+        {
+          "text": "Output references specific git activity (real commit, feature, or fix \u2014 not generic placeholder text)",
+          "passed": true,
+          "evidence": "References Playwright screenshots for PRs, sandbox TLS fix, vault read permissions, OSC 9 notification, WezTerm CWD fix, Obsidian note fix \u2014 real specifics."
+        },
+        {
+          "text": "Output is under 300 words",
+          "passed": true,
+          "evidence": "Approximately 200 words."
+        },
+        {
+          "text": "Output does not begin with meta-commentary like 'I'll write' or 'Here is your update'",
+          "passed": false,
+          "evidence": "Second line reads 'Here's what shipped in the personal dev tooling this week.' \u2014 meta-commentary before the content begins."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 42.1333,
+        "stddev": 12.9558,
+        "min": 31.6,
+        "max": 56.6
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.6667,
+        "stddev": 0.2309,
+        "min": 0.4,
+        "max": 0.8
+      },
+      "time_seconds": {
+        "mean": 43.3333,
+        "stddev": 17.5717,
+        "min": 30.7,
+        "max": 63.4
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.33",
+      "time_seconds": "-1.2",
+      "tokens": "+0"
+    }
+  },
+  "notes": []
+}

@@ -5,53 +5,10 @@ description: Review code for bugs, style, and design issues. Use when asked to r
 
 # Code Review
 
-Review code changes and provide actionable feedback on bugs, design, clarity,
-and style. Supports two modes: GitHub PR review and local diff review.
+Review local code changes and provide actionable feedback on bugs, design,
+clarity, and style. For GitHub PR reviews, use `/review-pr` instead.
 
-## Determine the review target
-
-- If given a PR number or URL, use **PR review mode**.
-- If no PR is specified, use **local diff review mode** (staged + unstaged changes).
-
----
-
-## PR Review Mode
-
-> **Sandbox note:** All `gh` commands require `dangerouslyDisableSandbox: true` — the sandbox breaks TLS verification for GitHub API calls. Always set this flag for every `gh` invocation.
-
-### Fetch the diff
-
-```bash
-gh pr diff {PR_NUMBER}
-```
-
-Get PR context (description, linked issues):
-
-```bash
-gh pr view {PR_NUMBER} --json title,body,labels,baseRefName,headRefName
-```
-
-### Read changed files in full
-
-Don't review the diff in isolation. For each significantly changed file, read
-the full file to understand the surrounding context before commenting.
-
-### Leave review comments
-
-For issues found, leave inline comments on the PR:
-
-```bash
-gh api repos/{OWNER}/{REPO}/pulls/{PR_NUMBER}/reviews \
-  -f event="COMMENT" \
-  -f body="Overall review summary" \
-  --jsonArray comments='[{"path":"file.py","line":42,"body":"Issue description"}]'
-```
-
-For minor or nitpick items, prefix the comment body with `nit:`.
-
-Sign off every comment with `-Claude`.
-
----
+> **Never post comments directly to a PR.** All feedback stays in conversation.
 
 ## Local Diff Review Mode
 

@@ -1,0 +1,27 @@
+{
+  "eval_id": 1,
+  "eval_name": "minimal-info",
+  "prompt": "Write me a project update",
+  "assertions": [
+    {
+      "text": "Response contains at least one question mark — Claude asks for clarification rather than generating immediately",
+      "type": "behaviour"
+    },
+    {
+      "text": "Questions ask about project name or project context",
+      "type": "content"
+    },
+    {
+      "text": "Questions ask about which sources to use (git, Slack, Jira, Notion, docs)",
+      "type": "content"
+    },
+    {
+      "text": "Questions ask about the time period to cover",
+      "type": "content"
+    },
+    {
+      "text": "All clarifying questions are grouped into a single message (not spread across multiple turns)",
+      "type": "format"
+    }
+  ]
+}

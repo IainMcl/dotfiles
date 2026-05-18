@@ -1,0 +1,38 @@
+{
+  "expectations": [
+    {
+      "text": "Output uses Slack-style bold (*word*) rather than markdown ## headers",
+      "passed": true,
+      "evidence": "Uses *Done*, *In Progress*, *Up Next* with single asterisks. No ## headers present."
+    },
+    {
+      "text": "Output contains at least one emoji section header (✅, 🔄, or 👀)",
+      "passed": true,
+      "evidence": "All three present: ✅ *Done*, 🔄 *In Progress*, 👀 *Up Next*"
+    },
+    {
+      "text": "Output references specific git activity (real commit, feature, or fix — not generic placeholder text)",
+      "passed": true,
+      "evidence": "References WezTerm tab indicators, CWD fix, Claude Stop hook, create-draft-pr Playwright update, sandbox config, Obsidian frontmatter fix — all real commits."
+    },
+    {
+      "text": "Output is under 300 words",
+      "passed": true,
+      "evidence": "Output is approximately 130 words."
+    },
+    {
+      "text": "Output does not begin with meta-commentary like 'I'll write' or 'Here is your update'",
+      "passed": true,
+      "evidence": "Starts directly with '*Dotfiles — past 7 days*'"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "total_duration_seconds": 31.6
+  }
+}

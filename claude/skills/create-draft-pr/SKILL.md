@@ -66,17 +66,28 @@ non-visual.
 
 ## Create draft PR
 
-> **Sandbox note:** All `gh` commands require `dangerouslyDisableSandbox: true` — the sandbox breaks TLS verification for GitHub API calls. Always set this flag for every `gh` invocation.
+> **Sandbox note:** `gh pr create` fails inside the sandbox with a TLS certificate error (`x509: OSStatus -26276`) even with `dangerouslyDisableSandbox: true`. Always use the GitHub REST API via `curl` instead:
 
-Create a draft PR using the command:
+1. Get the token: `gh auth token`
+2. POST to the pulls endpoint:
 
 ```bash
-gh pr create --draft --title \"{title}\" --body \"{body}\"
+curl -s -X POST \
+  -H "Authorization: token $(gh auth token)" \
+  -H "Accept: application/vnd.github.v3+json" \
+  https://api.github.com/repos/{owner}/{repo}/pulls \
+  -d "{\"title\": \"...\", \"head\": \"branch-name\", \"base\": \"main\", \"draft\": true, \"body\": \"...\"}"
 ```
 
-Return the URL.
+`curl` does not have the same TLS restriction and reaches GitHub successfully from within the sandbox.
+
+Return the `html_url` from the response.
 
 ## If the current branch isn't published
 
 If the current branch is not published, push with `-u`.
+
+## Monitor CI checks
+
+After the PR is created, activate the `check-ci` skill, passing the PR URL as the argument. It will wait for all checks to complete, investigate any failures, implement fixes, and re-push automatically.
 
