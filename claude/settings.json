@@ -57,8 +57,7 @@
       "mcp__sentry__get_issue_details",
       "Read(/Users/iain.mclaughlan/notes/hitchhiker/**)",
       "Write(/Users/iain.mclaughlan/notes/hitchhiker/**)"
-    ],
-    "defaultMode": "auto"
+    ]
   },
   "model": "opusplan",
   "hooks": {
@@ -223,3 +222,4 @@
     }
   },
   "editorMode": "vim"
+}
