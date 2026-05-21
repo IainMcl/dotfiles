@@ -39,9 +39,10 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					-- "gopls",
-					-- "pylsp",
-					-- "ts_ls",
+					"gopls",
+					"pyright",
+					"terraformls",
+					-- "tsserver", -- installed globally via npm; NVM path added in set.lua
 					"ruff",
 				},
 				handlers = {
@@ -66,6 +67,22 @@ return {
 									runtime = { version = "Lua 5.1" },
 									diagnostics = {
 										globals = { "vim", "it", "describe", "before_each", "after_each" },
+									},
+								},
+							},
+						})
+					end,
+
+					["pyright"] = function()
+						local lspconfig = require("lspconfig")
+						lspconfig.pyright.setup({
+							capabilities = capabilities,
+							settings = {
+								python = {
+									analysis = {
+										typeCheckingMode = "basic",
+										autoSearchPaths = true,
+										useLibraryCodeForTypes = true,
 									},
 								},
 							},
