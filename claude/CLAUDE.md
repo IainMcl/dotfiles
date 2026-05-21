@@ -56,9 +56,11 @@ Notes are at `$VAULTS_PATH` (set per machine in shell profile). Prefer reading n
 
 ## Git commit format
 
+Do NOT use Conventional Commits prefixes (`feat:`, `fix:`, `chore:`, `feat(scope):`, etc.) in commit messages, PR titles, or anywhere else. Use plain imperative sentences instead (e.g. "Add gopls LSP", "Fix NVM path not visible to Neovim").
+
 **Never** use `$()` command substitution or HEREDOC for commit messages — this triggers a security confirmation prompt. Instead:
-1. Use the `Write` tool to write the commit message to `/tmp/commit_msg.txt`
-2. Run `git commit -F /tmp/commit_msg.txt`
+1. Use the `Write` tool to write the commit message to `$TMPDIR/commit_msg.txt`
+2. Run `git commit -F $TMPDIR/commit_msg.txt`
 
 ## Writing & Documentation
 
