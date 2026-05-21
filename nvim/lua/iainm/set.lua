@@ -1,5 +1,17 @@
 -- vim.opt.guicursor = ""
 
+-- Make NVM-managed node available to Neovim (not inherited from shell)
+local nvm_default = vim.fn.expand("~/.nvm/alias/default")
+local f = io.open(nvm_default, "r")
+if f then
+    local version = f:read("*l"):gsub("%s+", "")
+    f:close()
+    local node_bin = vim.fn.expand("~/.nvm/versions/node/" .. version .. "/bin")
+    if vim.fn.isdirectory(node_bin) == 1 then
+        vim.env.PATH = node_bin .. ":" .. vim.env.PATH
+    end
+end
+
 vim.opt.mouse = "a"
 
 vim.opt.nu = true
