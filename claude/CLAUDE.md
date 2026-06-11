@@ -1,5 +1,21 @@
 @~/.claude/rules/aws-mcp.md
 
+# Response style
+
+## Inline Citations (IMPORTANT, DO NOT MISS)
+
+When making factual claims about code, systems, processes, or configuration, cite the source inline as a numbered hyperlink formatted `[[N]](url)`, which renders as a clickable **[N]**. Example:
+
+> "The cleanup job purges expired sessions nightly [[1]](https://github.com/org/repo/blob/main/src/jobs/cleanup.py)."
+
+Acceptable sources: GitHub file permalinks (prefer line-anchored), Notion pages, Jira tickets, Datadog monitors/dashboards/alerts, Sentry alerts, Slack conversations, architecture docs, local code repositories.
+
+Rules:
+
+- Only cite URLs you have observed in this session (tool results, user-provided links, file reads). Never fabricate or guess a URL.
+- Prefer the most specific anchor available (file path from the repo root + line number or range (e.g. 12-20), not just repo root).
+- Collect all citations in a numbered reference list at the end of the response when there are 2 or more.
+
 # Coding guidelines
 
 ## No attribution
