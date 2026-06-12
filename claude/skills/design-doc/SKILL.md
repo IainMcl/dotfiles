@@ -19,7 +19,7 @@ Default: engineers, engineering managers, product managers, and designers. If a 
 2. **TL;DR / Abstract** — concise summary of the problem, solution, and key decisions. Readable in under a minute.
 3. **Overview** — problem statement, goals, non-goals. What are we solving, why does it matter, what does success look like, what is explicitly out of scope?
 4. **Testing, Rollout & Rollback** — how will this be tested? Rollout plan (phased, feature flagged, etc.)? Rollback plan?
-5. **Metrics, Monitoring & SLAs** — how will we know this is working? Metrics, SLAs, alerts, dashboards. For features with user-facing changes, include design metrics (e.g. task completion rate, error rate on key flows, time-on-task, user satisfaction scores). If design metrics are absent or undefined, pause and ask the user to define them before proceeding.
+5. **Metrics, Monitoring & SLAs** — how will we know this is working? Metrics, SLAs, alerts, dashboards. For features with user-facing changes, also include design metrics (e.g. task completion rate, error rate on key flows, time-on-task, user satisfaction scores). If any metrics are absent or undefined, pause and ask the user to define them before proceeding — split the questions into two groups: **Engineering metrics** (SLAs, error rates, latency, alerting) and **Design metrics** (user-facing success signals).
 6. **Alternatives Considered** — other approaches evaluated and why they were not chosen.
 7. **Open Questions** — decisions or unknowns to resolve before or during implementation.
 8. **References** — all external links and sources.
