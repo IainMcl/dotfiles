@@ -1,6 +1,5 @@
 {
   "permissions": {
-    "defaultMode": "auto",
     "allow": [
       "Bash(git:*)",
       "Bash(gh:*)",
@@ -57,9 +56,10 @@
       "mcp__sentry__get_issue_details",
       "Read(/Users/iain.mclaughlan/notes/hitchhiker/**)",
       "Write(/Users/iain.mclaughlan/notes/hitchhiker/**)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
-  "model": "opusplan",
+  "model": "opus[1m]",
   "hooks": {
     "Stop": [
       {
@@ -172,6 +172,7 @@
     "mode": "hold"
   },
   "skipDangerousModePermissionPrompt": true,
+  "editorMode": "vim",
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
   "mcpServers": {
@@ -221,5 +222,5 @@
       }
     }
   },
-  "editorMode": "vim"
+  "tui": "fullscreen"
 }
