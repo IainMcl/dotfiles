@@ -70,6 +70,27 @@ When working in a particular language, look for a matching skill (e.g. `python-c
 
 Notes are at `$VAULTS_PATH` (set per machine in shell profile). Prefer reading notes directly with `Read` or `Grep` over using the Obsidian MCP server — direct reads are cheaper. Only use the MCP when you need fuzzy search across the vault and don't know which file to look in.
 
+## GitHub API (CRITICAL - always use curl, never gh for API calls)
+
+`gh` CLI fails inside the Claude Code sandbox with a TLS certificate error (`tls: failed to verify certificate: x509: OSStatus -26276`). This blocks `gh pr create`, `gh pr list`, and any `gh` command that hits the GitHub API. `curl` does not have this restriction.
+
+**Always use the GitHub REST API via `curl` for any GitHub operation (creating PRs, listing PRs, posting comments, etc.).**
+
+1. Get the token: `gh auth token` (this local command works fine)
+2. Use `curl` with the token in the `Authorization` header
+
+Example - create a draft PR:
+```bash
+TOKEN=$(gh auth token)
+curl -s -X POST \
+  -H "Authorization: token $TOKEN" \
+  -H "Accept: application/vnd.github.v3+json" \
+  https://api.github.com/repos/travelperk/{repo}/pulls \
+  -d '{"title": "...", "head": "branch-name", "base": "main", "draft": true, "body": "..."}'
+```
+
+Do NOT attempt `gh pr create` first and fall back - go straight to `curl`.
+
 ## Git commit format
 
 Do NOT use Conventional Commits prefixes (`feat:`, `fix:`, `chore:`, `feat(scope):`, etc.) in commit messages, PR titles, or anywhere else. Use plain imperative sentences instead (e.g. "Add gopls LSP", "Fix NVM path not visible to Neovim").
@@ -81,6 +102,22 @@ Do NOT use Conventional Commits prefixes (`feat:`, `fix:`, `chore:`, `feat(scope
 ## Writing & Documentation
 
 Post-mortems and incident debriefs should use blameless, conversational language. Avoid overly formal or blame-oriented tone. Do not make claims that aren't directly supported by evidence in the codebase or logs.
+
+### Design docs and technical writing style
+
+When writing design docs, planning documents, or any technical prose:
+
+- **"We" voice throughout.** "We want to add..." not "It is proposed that..." or passive constructions.
+- **Plain, direct English.** Say the thing, then explain it. No throat-clearing.
+- **Short paragraphs, one idea each.** If a paragraph is doing two things, split it.
+- **Lead with why, then what, then how.** Context before solution.
+- **Numbered lists only for sequential steps.** Use bullets for everything else - numbered lists imply order.
+- **Bold for key decisions or terms on first use.** Not for decoration.
+- **No backtick formatting for non-code.** Only use it for actual identifiers, field names, or code - not for emphasis or concepts.
+- **Always include a "What is not changing" section.** This surfaces hidden assumptions and prevents scope creep misunderstandings.
+- **Risks section: bold title, plain paragraph.** State the risk in the title, explain it in prose below. No nested bullets.
+- **Label explicit decisions inline.** e.g. "(v1 decision)" or "(confirmed)" so the reader knows what's settled vs open.
+- **Section breaks (---) between major sections** in longer documents.
 
 ## Suggest rule/skill improvements
 

@@ -1,6 +1,6 @@
 ---
 name: notion
-description: Look up information in Notion. Use when asked to find, read, or search a Notion page.
+description: Read, search, or write Notion pages. Use when asked to find, read, search, create, or update a Notion page.
 ---
 
 # Notion
@@ -38,3 +38,18 @@ If a page is likely to be referenced again, save a condensed version to Obsidian
 4. If not → `notion-fetch` the page, then `Grep` the output file for the specific content
 5. Summarise the relevant section only
 6. Offer to save a condensed version to Obsidian if it's a reference page
+
+---
+
+## Writing to Notion
+
+### Mermaid diagrams
+
+- **`\n` does not work as a line break inside node labels.** Notion's Mermaid renderer ignores it and renders it literally. Use a space or ` - ` to separate text within a label instead.
+- Keep node labels short - long labels without breaks will overflow. Use ` - ` as a readable separator when you need to pack multiple pieces of information into one node.
+
+### General writing tips
+
+- Don't include the page title at the top of the content — Notion renders the `title` property as the heading automatically.
+- Use `---` for section dividers between major sections in longer documents.
+- Fetch the page with `notion-fetch` before using `update_content` — the `old_str` must match the current content exactly.
