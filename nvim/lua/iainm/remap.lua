@@ -32,11 +32,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- terminal
 vim.keymap.set("t", "<C-x>", "<C-\\><C-N>", { desc = "Terminal - escape terminal mode" })
 
--- Terminal split navigation
-vim.keymap.set("t", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", { desc = "Terminal - navigate left" })
-vim.keymap.set("t", "<C-j>", "<Cmd>NvimTmuxNavigateDown<CR>", { desc = "Terminal - navigate down" })
-vim.keymap.set("t", "<C-k>", "<Cmd>NvimTmuxNavigateUp<CR>", { desc = "Terminal - navigate up" })
-vim.keymap.set("t", "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>", { desc = "Terminal - navigate right" })
+-- Split navigation (nvim-internal only; Ctrl+Shift+h/j/k/l handled by Wezterm for pane nav)
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Navigate left" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Navigate down" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Navigate up" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Navigate right" })
+vim.keymap.set("t", "<C-h>", "<C-\\><C-N><C-w>h", { desc = "Terminal - navigate left" })
+vim.keymap.set("t", "<C-j>", "<C-\\><C-N><C-w>j", { desc = "Terminal - navigate down" })
+vim.keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k", { desc = "Terminal - navigate up" })
+vim.keymap.set("t", "<C-l>", "<C-\\><C-N><C-w>l", { desc = "Terminal - navigate right" })
 
 -- Obsidian
 -- Loaded only if the environment variable $VAULTS_PATH exists

@@ -41,7 +41,7 @@ return {
 					"lua_ls",
 					-- "gopls",
 					-- "pylsp",
-					-- "ts_ls",
+					"ts_ls",
 					"ruff",
 				},
 				handlers = {
