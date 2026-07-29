@@ -2,28 +2,6 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Repository Overview
-
-Personal dotfiles repository for a WSL Ubuntu development environment, primarily using Wezterm, Neovim, tmux, and zsh. Configured for Python, Go, and JavaScript/TypeScript development with Obsidian note-taking integration.
-
-## Repository Structure
-
-- `nvim/` — Neovim configuration (Lua-based, uses Lazy package manager)
-  - `nvim/lua/iainm/` — Core config modules (keymaps, settings, theme, etc.)
-  - `nvim/lua/iainm/lazy/` — Individual plugin configurations (one file per plugin)
-  - Entry point: `nvim/init.lua` → `nvim/lua/iainm/init.lua` → `nvim/lua/iainm/lazy_init.lua`
-- `wezterm/` — Wezterm terminal config (Lua-based, modular)
-  - `wezterm/wezterm.lua` — Entry point
-  - `wezterm/config/` — Appearance, keybindings, init
-  - `wezterm/utils/` — Platform detection utilities
-- `claude/` — Claude Code configuration (skills, settings)
-  - `claude/skills/` — Custom skills (commit-code, create-draft-pr, address-pr-comments, code-review, review-pr, research, python-coding, jira-cli, worktree-testing)
-- `zsh/` — Zsh config (`.zshrc`) and helper scripts in `zsh/bin/`
-- `fish/` — Fish shell config
-- `tmux/` — Tmux configuration
-- `powershell/` — PowerShell profile with Oh My Posh theme
-- `MacInstall/` / `WindowsInstall/` — Platform-specific install scripts (not well tested)
-
 ## Key Conventions
 
 - **Neovim plugins**: Each plugin gets its own file in `nvim/lua/iainm/lazy/`, returning a Lazy plugin spec table. Follow the existing pattern when adding new plugins.
