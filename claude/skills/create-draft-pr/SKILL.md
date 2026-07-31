@@ -35,10 +35,13 @@ level changes.  If there are points that a reviewer should pay particular
 attention to.  Then after creating the draft PR, add a comment on the specific
 lines explaining what should be looked at.
 
-If outlining a test plan or equivalent do **not** include things like tests
-run, tests pass, linting run. **Only** include relevant things that the
-author or a reviewer will do to ensure the implementation work. Testing and
-linting will be handled by CI checks.
+Do **not** include a "How to test", "Testing", or "Test plan" section unless
+there are involved practical pre- or post-deployment steps that a person must
+carry out manually (e.g. running a one-off migration script, verifying a third-party
+webhook in staging, coordinating a feature flag flip). Things like "run the test
+suite", "run linting", or "open the app and click around" are not worth including -
+CI covers automated checks, and basic smoke testing is implied. When in doubt, omit
+the section entirely.
 
 ## Frontend change screenshots
 
