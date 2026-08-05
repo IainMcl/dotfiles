@@ -30,10 +30,16 @@ If there are any post deployment tests that need to be run, include them in the 
 
 ## Things not to include
 
-Do **not** include a description of files changed.  **Only** describe the high
-level changes.  If there are points that a reviewer should pay particular
-attention to.  Then after creating the draft PR, add a comment on the specific
-lines explaining what should be looked at.
+Do **not** include a "Changes", "What changed", "Files changed", or any section
+that lists modified files or enumerates what was added/removed. GitHub has a diff
+tab that shows this - repeating it in the description is redundant noise. The
+rare exception is when a specific file or area of the diff carries non-obvious
+risk or deserves particular reviewer attention - in that case, call it out in
+prose as a targeted note, not as a list of changed files.
+
+Do **not** include a description of files changed. **Only** describe the high
+level changes. If there are points that a reviewer should pay particular
+attention to, add a comment on the specific lines after creating the draft PR.
 
 Do **not** include a "How to test", "Testing", or "Test plan" section unless
 there are involved practical pre- or post-deployment steps that a person must
