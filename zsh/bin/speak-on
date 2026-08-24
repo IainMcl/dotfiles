@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+# Re-enable the Claude Code Stop-hook spoken readback (see claude/hooks/speak-summary.sh)
+rm -f "$HOME/.claude/speak-summary.disabled"
+echo "Claude readback enabled."
